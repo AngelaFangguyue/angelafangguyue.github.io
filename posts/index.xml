@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 11 Oct 2019 11:07:52 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 12 Oct 2019 10:27:07 +0800</lastBuildDate>
     
 	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Third</title>
+      <link>http://example.org/posts/third/</link>
+      <pubDate>Sat, 12 Oct 2019 10:27:07 +0800</pubDate>
+      
+      <guid>http://example.org/posts/third/</guid>
+      <description>hi,第三次尝试</description>
+    </item>
+    
+    <item>
+      <title>第二篇博客</title>
+      <link>http://example.org/posts/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sat, 12 Oct 2019 09:11:52 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>HI,这是第二篇博客。使用markdown去写 ooooo</description>
+    </item>
     
     <item>
       <title>第一篇博客</title>
