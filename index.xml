@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Angela Fang&#39;s Blog</title>
-    <link>http://example.org/</link>
-    <description>Recent content on Angela Fang&#39;s Blog</description>
+    <title>AngelaFang’s Blog</title>
+    <link>http://example.com/</link>
+    <description>Recent content on AngelaFang’s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Wed, 16 Oct 2019 11:32:08 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://example.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>HTML常用标签</title>
-      <link>http://example.org/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <link>http://example.com/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Wed, 16 Oct 2019 11:32:08 +0800</pubDate>
       
-      <guid>http://example.org/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <guid>http://example.com/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
       <description>HTML 常用标签 a 标签 img 标签 table 标签 form 标签 碎碎念其他标签 a 标签 &amp;lt;a href=&amp;quot;//baidu.com&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;百度&amp;lt;/a&amp;gt;  作用:
 &amp;nbsp;&amp;nbsp;跳转到外部页面;跳转到内部锚点;跳转到邮箱或电话。
 常用属性:
@@ -31,10 +31,10 @@
     
     <item>
       <title>如何使用hugo搭建属于自己的博客</title>
-      <link>http://example.org/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://example.com/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sat, 12 Oct 2019 16:54:04 +0800</pubDate>
       
-      <guid>http://example.org/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://example.com/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
       <description>搭建一个属于自己的博客。 hugo:一个使用go语言写的博客生成器，速度快！ 官方网站的使用推荐说明：https://gohugo.io/getting-started/quick-start/ 下面是我自己动手搭建的总结，也是按照官网安装教程操作的。有一些操作是需要在github上操作，如有什么不清楚的，可以去github上搜索。首先你需要有github账号，下面还需要用到github的名字，这个只要你有github账号，自行去github上查看就可以了。如果是windows系统的电脑，电脑上还需要先安装Git Bash或者Cmder，请自行搜索安装教程。我的是windows10，安装的Cmder。（第一步到第十步，我在后面有具体的操作说明）
 第一步:在自己电脑上安装hugo，【这一步可以通过使用Cmder，操作命令行去下载执行安装，也可以直接去网站手动下载执行安装】，windows系统的还要去配置系统环境变量Path。 第二步:在自己电脑上选择一个合适位置，使用工具Cmder或者Git Bash打开，输入命令hugo new site quickstart。*注意这里的quickstart就是要创建的存放博客文件夹的目录名字，建议将该文件夹的名字起为&amp;rdquo;你的github名.github.io.creator&amp;rdquo;或者&amp;rdquo;你的github名.github.io.generator&amp;rdquo;*【文件名前面&amp;rdquo;你的github名字.github.io&amp;rdquo;这些不要写错，后面的可以随便起,如也可以为&amp;rdquo;你的github名.github.io-creator&amp;rdquo;或者&amp;rdquo;你的github名.github.io-generator&amp;rdquo;等。github名字请自行去github中查看】 第三步:输入 cd quickstart（这里的quickstart就是上面第二步创建的文件夹名字） 第四步:输入 git init 第五步:输入 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke 第六步:输入 echo &amp;lsquo;theme = &amp;ldquo;ananke&amp;rdquo;&amp;rsquo; &amp;gt;&amp;gt; config.toml 第七步:输入 hugo new posts/my-first-post.md 第八步:输入 hugo server -D（这一步操作之后，如果还想继续输入命令，需要先CTRL+c中断后，才可以继续。一旦中断，就无法使用http://localhost:1313 去访问你的博客。若不想中断，又想继续输入命令行操作，可以再新开一个Cmder窗口，进入到当前的目录下，继续操作。） 第九步:编辑配置文件 【打开quickstart里的config.toml文件，根据自己的需要自行进行设置】 （这步可以不用操作，使用默认的。） 第十步:输入 hugo 上述步骤在hugo的官网上也可找到。上述步骤完成之后，我们可以在自己本地http://localhost:1313 查看到自己的博客。但是想要别人看到还是不行的。下面的步骤是将博客和github结合，使得我们的博客能够在网上被其他人看到。
 第十一步:在quickstart目录下新建一个名为.gitignore的文件，然后编辑文件，里面写上/public/,保存即可。（*这一步的作用其实是为了在备份angelafangguyue.github.io.creator文件夹，将其上传到github上的时候，不上传public文件夹。public文件夹在后面会自己再初始化一个仓库，上传到github。这两个文件夹上传到github上的仓库也是不一样的。*） 第十二步:在public目录下，输入git init，初始化这个本地仓库；git add .；git commit -v(上面这些git命令，如有不懂的请自行搜索))。 第十三步:去git hub中创建一个空仓库，名字为&amp;rdquo;你的github名.github.io&amp;rdquo;(如我的仓库名就是angelafangguyue.github.io)如图二十一。即在GitHub上创建一个新的空仓库，只需要在红线标注1的地方填上名字，然后点击红线标注2的地方创建即可。 上：图二十一
@@ -45,29 +45,38 @@
     
     <item>
       <title>Third</title>
-      <link>http://example.org/posts/third/</link>
+      <link>http://example.com/posts/third/</link>
       <pubDate>Sat, 12 Oct 2019 10:27:07 +0800</pubDate>
       
-      <guid>http://example.org/posts/third/</guid>
+      <guid>http://example.com/posts/third/</guid>
       <description>hi,第三次尝试</description>
     </item>
     
     <item>
       <title>第二篇博客</title>
-      <link>http://example.org/posts/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://example.com/posts/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sat, 12 Oct 2019 09:11:52 +0800</pubDate>
       
-      <guid>http://example.org/posts/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://example.com/posts/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
       <description>HI,这是第二篇博客。使用markdown去写 ooooo</description>
     </item>
     
     <item>
       <title>第一篇博客</title>
-      <link>http://example.org/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://example.com/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 11 Oct 2019 11:07:52 +0800</pubDate>
       
-      <guid>http://example.org/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://example.com/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
       <description> Angela Fang的第一篇博客 开播啦啦啦啦，撸起袖子干！！！ </description>
+    </item>
+    
+    <item>
+      <title>MyResume</title>
+      <link>http://example.com/about/myresume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.com/about/myresume/</guid>
+      <description> AngelaFang&amp;rsquo;s Resume </description>
     </item>
     
   </channel>
