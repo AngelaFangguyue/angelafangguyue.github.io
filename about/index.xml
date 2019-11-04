@@ -6,6 +6,7 @@
     <description>Recent content in Abouts on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <lastBuildDate>Mon, 04 Nov 2019 09:11:52 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/about/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,10 +14,11 @@
     <item>
       <title>MyResume</title>
       <link>http://angelafang.top/about/myresume/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 04 Nov 2019 09:11:52 +0800</pubDate>
       
       <guid>http://angelafang.top/about/myresume/</guid>
-      <description> AngelaFang&amp;rsquo;s Resume </description>
+      <description>Hi,this is my blog。first of all，welcome and watch my resume。
+I&amp;rsquo;am AngelaFang,graduated from SoftWare Engineering of Nanchang University.</description>
     </item>
     
   </channel>

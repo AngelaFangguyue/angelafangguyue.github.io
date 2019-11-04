@@ -6,9 +6,19 @@
     <description>Recent content in Categories on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
+    <lastBuildDate>Mon, 04 Nov 2019 16:53:20 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>html</title>
+      <link>http://angelafang.top/categories/html/</link>
+      <pubDate>Mon, 04 Nov 2019 16:53:20 +0800</pubDate>
+      
+      <guid>http://angelafang.top/categories/html/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
