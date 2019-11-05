@@ -17,7 +17,18 @@
       <pubDate>Mon, 04 Nov 2019 16:53:20 +0800</pubDate>
       
       <guid>http://angelafang.top/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
-      <description>使用leavelt主题的第一篇博客，用来介绍html入门。</description>
+      <description>本篇文章大概介绍一下HTML,主要内容有：
+1:html之父
+2:html起手式
+3:常用的表章节的标签
+4:全局属性
+5:常用的内容标签
+另外关于html，可以参考MDN。
+1:李爵士-HTML之父 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HTML是Tim Berners-Lee（李爵士）发明的，一个很了不起的人物，和linux之父一样牛！！！他自己写了第一个浏览器，第一个服务器，用自己写的浏览器访问了自己写的服务器，发明了WWW，同时发明了HTML、HTTP和URL，实现了人类上网冲浪。
+2:HTML起手式 &amp;lt;!DOCTYPE html&amp;gt;&amp;lt;!--这句话是指定文档类型--&amp;gt; &amp;lt;html lange=&amp;quot;en&amp;quot;&amp;gt;&amp;lt;!--html标签，可以将值改为zh-CN--&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;/&amp;gt;&amp;lt;!--指定文件编码格式--&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,initial-scale=1.0&amp;quot;/&amp;gt;&amp;lt;!--适配于手机，但禁用缩放--&amp;gt; &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot;/&amp;gt;&amp;lt;!--告诉ie浏览器，使用最新内核--&amp;gt; &amp;lt;title&amp;gt;document&amp;lt;/title&amp;gt;&amp;lt;!--标题--&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;!--代码--&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  3:常用的表章节的标签 可以参考MDN
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;章节一类的标签可以分为两类，一类是内容分区元素，一类是文本内容元素。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;内容分区:内容分区元素允许你将文档内容从逻辑上进行组织划分。使用包括页眉(header)、页脚(footer)、导航(nav)和标题(h1~h6)等分区元素，来为页面内容创建明确的大纲，以便区分各个章节的内容。
+   Syntax Description     header 用于展示介绍性内容，可能包含一些标题元素。   footer 表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。   main 呈现了文档的body或应用的主体部分。   nav 表示页面的一部分，其目的是在当前文档或其他文档中提供导航链接。   h1–h6 标题(Heading)元素呈现了六个不同的级别的标题，h1级别最高，而h6级别最低。   section 表示包含在HTML文档中的独立部分，没有更具体的语义元素来表示，一般会包含一个标题。   article 表示文档、页面、应用或网站中的独立结构，其意在成为可独立分配的或可复用的结构。​​   aside 表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;文本内容:使用 HTML 文本内容元素来组织在开标签body和闭标签 /body里的块或章节的内容。这些元素能标识内容的宗旨或结构，而这对于 accessibility 和 SEO 很重要。</description>
     </item>
     
     <item>

@@ -45,7 +45,7 @@
     "articleSection" : "posts",
     "name" : "HTML入门笔记1",
     "headline" : "HTML入门笔记1",
-    "description" : "使用leavelt主题的第一篇博客，用来介绍html入门。",
+    "description" : "本篇文章大概介绍一下HTML,主要内容有：\n1:html之父\n2:html起手式\n3:常用的表章节的标签\n4:全局属性\n5:常用的内容标签\n另外关于html，可以参考MDN。\n1:李爵士-HTML之父 \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;HTML是Tim Berners-Lee（李爵士）发明的，一个很了不起的人物，和linux之父一样牛！！！他自己写了第一个浏览器，第一个服务器，用自己写的浏览器访问了自己写的服务器，发明了WWW，同时发明了HTML、HTTP和URL，实现了人类上网冲浪。\n2:HTML起手式 \x26lt;!DOCTYPE html\x26gt;\x26lt;!--这句话是指定文档类型--\x26gt; \x26lt;html lange=\x26quot;en\x26quot;\x26gt;\x26lt;!--html标签，可以将值改为zh-CN--\x26gt; \x26lt;head\x26gt; \x26lt;meta charset=\x26quot;UTF-8\x26quot;\/\x26gt;\x26lt;!--指定文件编码格式--\x26gt; \x26lt;meta name=\x26quot;viewport\x26quot; content=\x26quot;width=device-width,initial-scale=1.0\x26quot;\/\x26gt;\x26lt;!--适配于手机，但禁用缩放--\x26gt; \x26lt;meta http-equiv=\x26quot;X-UA-Compatible\x26quot; content=\x26quot;ie=edge\x26quot;\/\x26gt;\x26lt;!--告诉ie浏览器，使用最新内核--\x26gt; \x26lt;title\x26gt;document\x26lt;\/title\x26gt;\x26lt;!--标题--\x26gt; \x26lt;\/head\x26gt; \x26lt;body\x26gt; \x26lt;!--代码--\x26gt; \x26lt;\/body\x26gt; \x26lt;\/html\x26gt;  3:常用的表章节的标签 可以参考MDN\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;章节一类的标签可以分为两类，一类是内容分区元素，一类是文本内容元素。\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;内容分区:内容分区元素允许你将文档内容从逻辑上进行组织划分。使用包括页眉(header)、页脚(footer)、导航(nav)和标题(h1~h6)等分区元素，来为页面内容创建明确的大纲，以便区分各个章节的内容。\n   Syntax Description     header 用于展示介绍性内容，可能包含一些标题元素。   footer 表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。   main 呈现了文档的body或应用的主体部分。   nav 表示页面的一部分，其目的是在当前文档或其他文档中提供导航链接。   h1–h6 标题(Heading)元素呈现了六个不同的级别的标题，h1级别最高，而h6级别最低。   section 表示包含在HTML文档中的独立部分，没有更具体的语义元素来表示，一般会包含一个标题。   article 表示文档、页面、应用或网站中的独立结构，其意在成为可独立分配的或可复用的结构。​​   aside 表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。    \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;文本内容:使用 HTML 文本内容元素来组织在开标签body和闭标签 \/body里的块或章节的内容。这些元素能标识内容的宗旨或结构，而这对于 accessibility 和 SEO 很重要。",
     "inLanguage" : "zh-Hans",
     "author" : "AngelaFang",
     "creator" : "AngelaFang",
@@ -56,7 +56,7 @@
     "datePublished": "2019-11-04 16:53:20 \x2b0800 CST",
     "dateModified" : "2019-11-04 16:53:20 \x2b0800 CST",
     "url" : "http:\/\/angelafang.top\/2019\/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01\/",
-    "wordCount" : "1",
+    "wordCount" : "180",
     "keywords" : [ "html", "Angela Fang\x27s Blog"]
 }
 </script>
@@ -145,7 +145,303 @@
           
           
 
-          <p>使用leavelt主题的第一篇博客，用来介绍html入门。</p>
+          
+
+<!-- 使用leavelt主题的第一篇博客，用来介绍html入门。 -->
+
+<p>本篇文章大概介绍一下HTML,主要内容有：<br />
+<a href="#a1">1:html之父</a><br />
+<a href="#a2">2:html起手式</a><br />
+<a href="#a3">3:常用的表章节的标签</a><br />
+<a href="#a4">4:全局属性</a><br />
+<a href="#a5">5:常用的内容标签</a><br />
+<strong>另外关于html，可以参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML" rel="nofollow noreferrer" target="_blank">MDN</a>。</strong></p>
+
+<hr />
+
+<h3 id="a1">1:李爵士-HTML之父</h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML是Tim Berners-Lee（李爵士）发明的，一个很了不起的人物，和linux之父一样牛！！！他自己写了第一个浏览器，第一个服务器，用自己写的浏览器访问了自己写的服务器，发明了WWW，同时发明了HTML、HTTP和URL，实现了人类上网冲浪。</p>
+
+<hr />
+
+<h3 id="a2">2:HTML起手式</h3>
+
+<pre><code>&lt;!DOCTYPE html&gt;&lt;!--这句话是指定文档类型--&gt;
+&lt;html lange=&quot;en&quot;&gt;&lt;!--html标签，可以将值改为zh-CN--&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;&lt;!--指定文件编码格式--&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;/&gt;&lt;!--适配于手机，但禁用缩放--&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;/&gt;&lt;!--告诉ie浏览器，使用最新内核--&gt;
+    &lt;title&gt;document&lt;/title&gt;&lt;!--标题--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--代码--&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<hr />
+
+<h3 id="a3">3:常用的表章节的标签</h3>
+
+<p>可以参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element" rel="nofollow noreferrer" target="_blank">MDN</a></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>章节一类的标签可以分为两类，一类是<a href="#neirong-ids">内容分区元素</a>，一类是<a href="#wenben-ids">文本内容元素</a>。</strong></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="neirong-ids" style="font-weight:bold">内容分区</span>:内容分区元素允许你将文档内容从逻辑上进行组织划分。使用包括页眉(header)、页脚(footer)、导航(nav)和标题(h1~h6)等分区元素，来为页面内容创建明确的大纲，以便区分各个章节的内容。</p>
+
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>header</td>
+<td>用于展示介绍性内容，可能包含一些标题元素。</td>
+</tr>
+
+<tr>
+<td>footer</td>
+<td>表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。</td>
+</tr>
+
+<tr>
+<td>main</td>
+<td>呈现了文档的body或应用的主体部分。</td>
+</tr>
+
+<tr>
+<td>nav</td>
+<td>表示页面的一部分，其目的是在当前文档或其他文档中提供导航链接。</td>
+</tr>
+
+<tr>
+<td>h1–h6</td>
+<td>标题(Heading)元素呈现了六个不同的级别的标题，h1级别最高，而h6级别最低。</td>
+</tr>
+
+<tr>
+<td>section</td>
+<td>表示包含在HTML文档中的独立部分，没有更具体的语义元素来表示，一般会包含一个标题。</td>
+</tr>
+
+<tr>
+<td>article</td>
+<td>表示文档、页面、应用或网站中的独立结构，其意在成为可独立分配的或可复用的结构。​​</td>
+</tr>
+
+<tr>
+<td>aside</td>
+<td>表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。</td>
+</tr>
+</tbody>
+</table>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="wenben-ids" style="font-weight:bold">文本内容</span>:使用 HTML 文本内容元素来组织在开标签body和闭标签 /body里的块或章节的内容。这些元素能标识内容的宗旨或结构，而这对于 accessibility 和 SEO 很重要。</p>
+
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>blockquote</td>
+<td>HTML 块级引用元素，代表其中的文字是引用内容。通常在渲染时，这部分的内容会有一定的缩进（注 中说明了如何更改）。若引文来源于网络，则可以将原内容的出处 URL 地址设置到 cite 特性上，若要以文本的形式告知读者引文的出处时，可以通过cite元素。</td>
+</tr>
+
+<tr>
+<td>main</td>
+<td>main元素呈现了文档的body或应用的主体部分。主体部分由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成。</td>
+</tr>
+
+<tr>
+<td>p</td>
+<td>p元素（或者说 HTML 段落元素）表示文本的一个段落。该元素通常表现为一整块与相邻文本分离的文本，或以垂直的空白隔离或以首行缩进。另外，p是块级元素。</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h3 id="a4">4:全局属性</h3>
+
+<p>可以参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes" rel="nofollow noreferrer" target="_blank">MDN</a></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>全局属性是所有HTML元素共有的属性; 它们可以用于所有元素，即使属性可能对某些元素不起作用。</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>class</td>
+<td>一个以空格分隔的元素的类名（classes ）列表，它允许 CSS 和 Javascript 通过类选择器 (class selectors) 或DOM方法( document.getElementsByClassName)来选择和访问特定的元素。</td>
+</tr>
+
+<tr>
+<td>id</td>
+<td>定义唯一标识符（ID），该标识符在整个文档中必须是唯一的。 其目的是在链接（使用片段标识符），脚本或样式（使用CSS）时标识元素。</td>
+</tr>
+
+<tr>
+<td>hidden</td>
+<td>布尔属性表示该元素尚未或不再相关。例如，它可用于隐藏在登录过程完成之前无法使用的页面元素。浏览器不会呈现此类元素。不得使用此属性隐藏可合法显示的内容</td>
+</tr>
+
+<tr>
+<td>style</td>
+<td>含要应用于元素的CSS样式声明。 请注意，建议在单独的文件中定义样式。 该属性和style元素主要用于快速样式化，例如用于测试目的。</td>
+</tr>
+
+<tr>
+<td>contenteditable</td>
+<td>一个枚举属性（enumerated attribute），表示元素是否可被用户编辑。 如果可以，浏览器会调整元素的部件（widget）以允许编辑。true 或者空字符串，表明元素是可被编辑的；   false，表明元素不能被编辑。</td>
+</tr>
+
+<tr>
+<td>tableindex</td>
+<td>整数属性，指示元素是否可以获取输入焦点（可聚焦），是否应该参与顺序键盘导航，如果是，则表示哪个位置。当值为<strong>负值</strong>表示该元素应该是可聚焦的，但不应通过顺序键盘导航到达;<strong>0</strong>表示元素应通过顺序键盘导航可聚焦和可到达，但其相对顺序由平台约定定义;<strong>正值</strong>意味着元素应该可以通过顺序键盘导航进行聚焦和访问;元素聚焦的顺序是tabindex的增加值。如果多个元素共享相同的tabindex，则它们的相对顺序遵循它们在文档中的相对位置。</td>
+</tr>
+
+<tr>
+<td>title</td>
+<td>包含表示与其所属元素相关信息的文本。 这些信息通常可以作为提示呈现给用户,但不是必须的。</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h3 id="a5">5:常用的内容标签</h3>
+
+<p>可以参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element" rel="nofollow noreferrer" target="_blank">MDN</a></p>
+
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>a</td>
+<td>超链接，用法<code>&lt;a href=&quot;https://www.baidu.com&quot;&gt;百度&lt;/a&gt;</code>     a标签里的属性有href-链接地址，target-链接打开的目标窗口，download下载属性，rel等常用属性。</td>
+</tr>
+
+<tr>
+<td>b</td>
+<td>和strong一样都是对文字加粗，但是仅仅是形式上，而strong是为了对其内容本身进行强调而加粗</td>
+</tr>
+
+<tr>
+<td>button</td>
+<td>表示一个可点击的按钮，可以用在表单或文档其它需要使用简单标准按钮的地方。</td>
+</tr>
+
+<tr>
+<td>br</td>
+<td>元素在文本中生成一个换行（回车）符号。此元素在写诗和地址时很有用，这些地方的换行都非常重要。</td>
+</tr>
+
+<tr>
+<td>code</td>
+<td>呈现代码的标签</td>
+</tr>
+
+<tr>
+<td>dl dt dd</td>
+<td>这三个元素是在一起使用的，用来定义描述一组数据。用法如 <br> <code>&lt;dl&gt;&lt;dt&gt;苹果&lt;/dt&gt;&lt;dd&gt;水果&lt;/dd&gt;&lt;dt&gt;西兰花&lt;/dt&gt;&lt;dd&gt;蔬菜&lt;/dd&gt;&lt;dt&gt;玫瑰&lt;/dt&gt;&lt;dd&gt;鲜花&lt;/dd&gt;&lt;/dl&gt;</code></td>
+</tr>
+
+<tr>
+<td>div</td>
+<td>块元素，没有任何样式，仅仅是定义了一个块元素</td>
+</tr>
+
+<tr>
+<td>em</td>
+<td>和i标签一样都是对文字样式进行斜体设置，em也有强调的意思，但仅是语气上的强调，而strong标签是对内容本身进行强调。i标签就是形式上是斜体设置。</td>
+</tr>
+
+<tr>
+<td>form</td>
+<td>素表示了文档中的一个区域，此区域包含有交互控制元件，用来向 Web 服务器提交信息</td>
+</tr>
+
+<tr>
+<td>hr</td>
+<td>表现为水平线。</td>
+</tr>
+
+<tr>
+<td>i</td>
+<td>斜体</td>
+</tr>
+
+<tr>
+<td>iframe</td>
+<td>内嵌页面</td>
+</tr>
+
+<tr>
+<td>img</td>
+<td>图像标签<br><code>&lt;img src=&quot;图片地址&quot; alt=&quot;替换文字&quot;/&gt;</code></td>
+</tr>
+
+<tr>
+<td>input</td>
+<td>基于Web的表单创建交互式控件，以便接受来自用户的数据; 可以使用各种类型的输入数据和控件小部件，具体取决于设备和user agent。</td>
+</tr>
+
+<tr>
+<td>ul ol li</td>
+<td>ul是无序列表，ol是有序列表。这两个标签都要和li一起结合使用。</td>
+</tr>
+
+<tr>
+<td>pre</td>
+<td>在html中，多个空格，回车会被当做一个空格在页面中显示出来。但在该元素中的文本内容会按照在原文中的样式输出。</td>
+</tr>
+
+<tr>
+<td>select  option</td>
+<td>选项菜单</td>
+</tr>
+
+<tr>
+<td>strong</td>
+<td>加粗强调</td>
+</tr>
+
+<tr>
+<td>table thead tbody tfoot tr th td</td>
+<td>表格</td>
+</tr>
+
+<tr>
+<td>textarea</td>
+<td>多行纯文本编辑控件</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
 
     </div>
 
