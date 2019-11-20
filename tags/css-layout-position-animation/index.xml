@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>css layout position animation on Angela Fang&#39;s Blog</title>
+    <link>http://angelafang.top/tags/css-layout-position-animation/</link>
+    <description>Recent content in css layout position animation on Angela Fang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 19 Nov 2019 17:54:53 +0800</lastBuildDate>
+    
+	<atom:link href="http://angelafang.top/tags/css-layout-position-animation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSS入门2</title>
+      <link>http://angelafang.top/2019/css%E5%85%A5%E9%97%A82/</link>
+      <pubDate>Tue, 19 Nov 2019 17:54:53 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2019/css%E5%85%A5%E9%97%A82/</guid>
+      <description>本篇文章开始具体介绍 CSS,主要内容有：
+1:CSS 布局
+2:CSS 定位
+3:浏览器渲染原理
+4:CSS 动画的两种做法（transition 和 animation）
+这里区分一下布局和定位的区别：布局是在屏幕平面上的，而定位则是垂直于屏幕屏幕 1:CSS 布局 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;布局分为固定宽度布局和不固定宽度布局。顾名思义，固定宽度就是宽度是指定的，确定的，无法变化，宽度一般有 960px，1000px，1024px 等。此外还有两者都结合的响应式布局，即 pc 上固定宽度，但在移动端是不固定宽度的。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 一》在布局的时候，考虑的思路如下：
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1：需要兼容 IE9 吗？是的话，就采用 float 布局。不是的话，进入第二步；
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2：只兼容最新浏览器吗？是的话，就采用 grid 布局。不是的话，就用 flex 布局。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;注意：当使用 float 或者 flex 布局的时候，有时候会采用负的 margin 值。使用 float 布局的时候，一定不要忘了给父元素清除浮动.clearfix{content:&amp;ldquo;;display:block;clear:both;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 二》使用 float 布局
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 给子元素设置 width 和 float:left/right。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 给父元素添加.clearfix。.clearfix::after{content:&amp;ldquo;;display:block;clear:both;}
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 一般最后一个不设置宽度或者留一些空间，也可以设置一个最大宽度。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 用 float 布局就不需要做响应式。（因为手机上没有 IE，而这个布局是专为 IE 设计的）
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; IE6/7 存在双倍 margin bug。解决方法，把 margin 值减半或者将元素 display：inline-block。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 实践：</description>
+    </item>
+    
+  </channel>
+</rss>
