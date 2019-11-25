@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>js on Angela Fang&#39;s Blog</title>
+    <link>http://angelafang.top/tags/js/</link>
+    <description>Recent content in js on Angela Fang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 25 Nov 2019 11:35:40 +0800</lastBuildDate>
+    
+	<atom:link href="http://angelafang.top/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>浅谈js</title>
+      <link>http://angelafang.top/2019/%E6%B5%85%E8%B0%88js/</link>
+      <pubDate>Mon, 25 Nov 2019 11:35:40 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2019/%E6%B5%85%E8%B0%88js/</guid>
+      <description>本篇文章是关于 js 的概览，主要内容：
+1:常见浏览器及其内核介绍
+2:JS 发展历史以及标准
+1:常见浏览器及其内核介绍 1：浏览器内核简要说明：
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;一个完整的浏览器包含浏览器内核和浏览器的外壳（shell）。浏览器内核又可以分为两部分：渲染引擎（Layout Engine 或 Rendering Engine）和 JS 引擎。由于 JS 引擎越来越独立，内核就倾向于只指渲染引擎。
+2：常见的浏览器及其内核介绍：
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;浏览器的内核的种类很多，常见的浏览器内核可以分为四种：Trident、Gecko、Blink、Webkit。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;（1）Trident (IE 内核):国内很多的双核浏览器的其中一核便是 Trident，美其名曰 &amp;ldquo;兼容模式&amp;rdquo;。代表： IE、傲游、世界之窗浏览器、Avant、腾讯 TT、猎豹安全浏览器、360 极速浏览器、百度浏览器等。Window10 发布后，IE 将其内置浏览器命名为 Edge，Edge 最显著的特点就是新内核 EdgeHTML，但其实现 Edge 浏览器使用的是 Chrome 浏览器的内核。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;（2）Gecko(firefox):Mozilla FireFox(火狐浏览器) 采用该内核，Gecko 的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。 可惜这几年已经没落了， 比如打开速度慢、升级频繁。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;（3）webkit(Safari):Safari 是苹果公司开发的浏览器，所用浏览器内核的名称是大名鼎鼎的 WebKit。代表浏览器：傲游浏览器 3、 Apple Safari (Win/Mac/iPhone/iPad)、Symbian 手机浏览器、Android 默认浏览器。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;（4）Chromium/Bink(chrome):在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。大部分国产浏览器最新版都采用 Blink 内核。Chrome 浏览器内核：统称为 Chromium 内核或 Chrome 内核，以前是 Webkit 内核，现在是 Blink 内核；</description>
+    </item>
+    
+  </channel>
+</rss>
