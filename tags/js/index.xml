@@ -6,10 +6,37 @@
     <description>Recent content in js on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 25 Nov 2019 11:35:40 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2019 15:30:49 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/tags/js/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Js基本语法</title>
+      <link>http://angelafang.top/2019/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Thu, 28 Nov 2019 15:30:49 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2019/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <description>本篇文章是关于 js 的概览，主要内容：
+1:表达式与语句
+2:注意事项
+3:标识符
+4:注释
+5:区块 block
+6:条件语句
+7:循环语句
+8:break&amp;amp;&amp;amp;continue
+9:label
+ js 之父布兰登如此评价 js：它的原创之处并不优秀，优秀之处并非原创。哈哈哈哈，好打脸，那为什么它还被学习，因为它有价值，能产生价值，带来价值。
+现在距离 0202 年还不到 35 天，我们现在学习的就是 ES6 了。一句话，取其精华，弃其糟粕。
+1:表达式和语句 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;先要区分一下表达式和语句。语句是为了完成某种任务而进行的操作，下面就是一行赋值语句：
+var a = 1 + 3;  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这条语句先用 var 命令，声明了一个变量 a，然后将表达式 1+3 的运算结果赋值给变量 a。1+3 叫做表达式，指一个为了得到返回值的计算式。语句和表达式区别在于：前者为了进行某种操作，一般情况下不需要返回值，后者则是为了得到返回值，一定会返回一个值。详细的可以参考这篇文章。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;表达式：1+2 表达式的值是 3；add(1+2)表达式的值为函数的返回值 3；console.log 表达式的值是函数本身；console.log(&amp;lsquo;3&amp;rsquo;)表达式的值是 undefined（这里解释一下，console.log(&amp;lsquo;3&amp;rsquo;)表达式的值是函数 log 的返回值，而函数 log 返回值是 undefined。但该函数功能是会执行输出打印 3。）。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;二者区别：一般来说，表达式都是有值的，语句可有可没有。语句通常会改变环境的，比如说声明，赋值。这两句话并不是绝对的。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这里还要提一下值和返回值的概念。注意只有函数才有返回值。
+2:注意事项 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;js 中对大小写是敏感的；对空格和回车一般没关系，只有一个特殊情况：那就是 return 后不能跟回车。return 后若跟回车，会默认 return 一个 undefined。
+3:标识符 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;标识符标识符规则：可以以 unicode 字母，中文，_或者\$开头，但是不能以数字打头。后面的字符，除了前面提到的，还可以有数字。变量名也是标识符。
+4:注释 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;注释并不是越多越好。好的注释：踩坑注释；为什么代码会写得这么奇怪，遇到什么 bug</description>
+    </item>
     
     <item>
       <title>浅谈js</title>
