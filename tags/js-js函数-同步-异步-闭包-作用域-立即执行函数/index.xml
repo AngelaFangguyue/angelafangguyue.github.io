@@ -17,14 +17,18 @@
       <pubDate>Fri, 06 Dec 2019 08:45:30 +0800</pubDate>
       
       <guid>http://angelafang.top/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
-      <description>本篇文章介绍 js 函数的执行时机：
+      <description>本篇文章介绍 js 函数的执行时机,主要内容有：
+1:为什么会打印出 6 个 6
+2:怎样打印出 0,1,2,3,4,5
+3:其他的方法
+4:碎碎念
 请看下面的代码：
 let i=0; for(i=0;i&amp;lt;6;i++){ console.log(i); }  执行后的结果： 再看下面这个代码：
-let i=0; for(i=0;i&amp;lt;6;i++){ setTimeout(()=&amp;gt;console.log(i),10); }  执行后的结果： 上面两个结果不同，原因在哪里？原因就出在 setTimeout 这个函数上面。
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最上面的代码，它的执行时机是按照顺序，依次执行，循环一下，打印一下 i 的值。但是 setTimeout 函数，是要等待现在的代码执行完成后，再去执行 setTimeout 里的内容。针对上面的代码，就是把 for 语句循环完成了以后，再去执行 cosole.log(i),这时 i 的值已经变为 6，所以会输出 6 个 6。
+let i=0; for(i=0;i&amp;lt;6;i++){ setTimeout(()=&amp;gt;console.log(i),10); }  执行后的结果： 上面两个结果不同，原因在哪里？原因就出在 setTimeout 这个函数上面。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最上面的代码，它的执行时机是按照顺序，依次执行，循环一下，打印一下 i 的值。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;但是 setTimeout 函数,是异步任务，执行到这里的操作会被浏览器丢到另一个任务队列里去。 浏览器这时候会继续执行 for 循环。每一次 for 循环的时候，setTimeout 都执行一次，但是里面的函数没有被执行，而是被放到了任务队列里面，等待执行。for 循环了 6 次，就放了 6 次，当主线程执行完成后，才进入任务队列里面执行。这时候因为 for 循环 i=6 了，所以输出的全部都是 6。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如何理解异步呢？异步代码不等待结果，直接进行下面的代码，所以定时器只是开启了，而没有立即执行里面的代码，等到当前运行坏境的代码执行完之后再回来执行定时器里面的代码。总结：异步就是不等待结果的代码。
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;（setTimeout(语句 W,10)这里的 10 表示是等待现在的代码执行完，10 毫秒后就立即执行 setTimeout 里面的语句 W，若为数字 X，表示执行完现在的代码，等待 X 毫秒后，去执行语句 W）。
-那么如何才能在第二个代码中，让它的结果也能依次输出 0，1，2，3，4，5 呢？
-js 给我们提供了 let 和 for 搭配使用，就可以办到。原理：let 为代码块的作用域，所以每一次 for 循环，console.log(i); 都引用到 for 代码块作用域下的 i，因为这样被引用，所以 for 循环结束后，这些作用域在 setTimeout 未执行前都不会被释放。</description>
+那么如何才能在第二个代码中，让它的结果也能依次输出 0，1，2，3，4，5 呢？ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;js 给我们提供了 let 和 for 搭配使用，就可以办到。原理：let 为代码块的作用域，所以每一次 for 循环，console.</description>
     </item>
     
   </channel>
