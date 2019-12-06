@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>js js函数 同步 异步 闭包 作用域 立即执行函数 on Angela Fang&#39;s Blog</title>
+    <link>http://angelafang.top/tags/js-js%E5%87%BD%E6%95%B0-%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5-%E9%97%AD%E5%8C%85-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</link>
+    <description>Recent content in js js函数 同步 异步 闭包 作用域 立即执行函数 on Angela Fang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 06 Dec 2019 08:45:30 +0800</lastBuildDate>
+    
+	<atom:link href="http://angelafang.top/tags/js-js%E5%87%BD%E6%95%B0-%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5-%E9%97%AD%E5%8C%85-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Js函数的执行时机</title>
+      <link>http://angelafang.top/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <pubDate>Fri, 06 Dec 2019 08:45:30 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      <description>本篇文章介绍 js 函数的执行时机：
+请看下面的代码：
+let i=0; for(i=0;i&amp;lt;6;i++){ console.log(i); }  执行后的结果： 再看下面这个代码：
+let i=0; for(i=0;i&amp;lt;6;i++){ setTimeout(()=&amp;gt;console.log(i),10); }  执行后的结果： 上面两个结果不同，原因在哪里？原因就出在 setTimeout 这个函数上面。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最上面的代码，它的执行时机是按照顺序，依次执行，循环一下，打印一下 i 的值。但是 setTimeout 函数，是要等待现在的代码执行完成后，再去执行 setTimeout 里的内容。针对上面的代码，就是把 for 语句循环完成了以后，再去执行 cosole.log(i),这时 i 的值已经变为 6，所以会输出 6 个 6。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;（setTimeout(语句 W,10)这里的 10 表示是等待现在的代码执行完，10 毫秒后就立即执行 setTimeout 里面的语句 W，若为数字 X，表示执行完现在的代码，等待 X 毫秒后，去执行语句 W）。
+那么如何才能在第二个代码中，让它的结果也能依次输出 0，1，2，3，4，5 呢？
+js 给我们提供了 let 和 for 搭配使用，就可以办到。原理：let 为代码块的作用域，所以每一次 for 循环，console.log(i); 都引用到 for 代码块作用域下的 i，因为这样被引用，所以 for 循环结束后，这些作用域在 setTimeout 未执行前都不会被释放。</description>
+    </item>
+    
+  </channel>
+</rss>
