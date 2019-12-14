@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noodp" />
+  
+  <meta name="author" content="AngelaFang" />
+  
+  <link rel="prev" href="http://angelafang.top/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+  
+  <link rel="canonical" href="http://angelafang.top/2019/js%E5%85%A8%E8%A7%A3%E5%AE%9E%E6%88%98%E4%B9%8B%E5%A4%AA%E6%9E%81/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>
+    
+    
+    Js全解实战之太极 | Angela Fang&#39;s Blog
+    
+  </title>
+  <meta name="title" content="Js全解实战之太极 | Angela Fang&#39;s Blog"/>
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/angelafang.top\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Js全解实战之太极",
+    "headline" : "Js全解实战之太极",
+    "description" : "本篇文章是 js 全解实战之太极,讲的是做一个旋转的太极，并且在页面上动态的展示所写的代码。主要内容有： 1:重点一：将所写的内容动态显示在页面上\n2:重点二：将所写的CSS样式应用在页面上\n3:重点三：画会动的太极\n4:重点四：适配移动端\n重点一：将所写的内容动态显示在页面上 \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;1》动态展示：\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;setTimeout 可以间隔一个固定的时间去执行这个操作，但是该操作只执行一次，setInterval 可以连续的操作，每次都间隔一个固定的时间。但是考虑到 setInterval 不方便取消操作，一般采用的是递归的 setTimeout。利用递归的 setTimeout 函数模拟 setInterval，可以随时停止，这是它的好处。\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;做法：将所做的操作写作一个函数 fun1，里面用到了 setTimeout 函数，然后在 setTimeout 这个函数体内写所需要的操作，并且继续调用 fun1 这个函数本身。当然，在调用 fun1 函数的时候，需要加判断，当满足终止条件后，就不再调用 fun1 函数，return 即可。\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;例子：(html 页面里有一个 id 为 wenzi 的 span 标签，标签里会动态的展示数字，从 0 依次加 1，每 1s 变一次，直至变到 10 之后停止。)下面是 js 代码，主要看函数 fun1！\nlet wenzi = document.queryselector(\x26quot;#wenzi\x26quot;); let n = 0; let fun1 = ()=\x26gt;{ seTimeout(()=\x26gt;{wenzi.innerHTML = n; n\x2b=1; if(n\x26lt;=10){ fun1(); } },1000);};  \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;2》动态展示一段文字：",
+    "inLanguage" : "zh-Hans",
+    "author" : "AngelaFang",
+    "creator" : "AngelaFang",
+    "publisher": "AngelaFang",
+    "accountablePerson" : "AngelaFang",
+    "copyrightHolder" : "AngelaFang",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-08 20:47:50 \x2b0800 CST",
+    "dateModified" : "2019-12-08 20:47:50 \x2b0800 CST",
+    "url" : "http:\/\/angelafang.top\/2019\/js%E5%85%A8%E8%A7%A3%E5%AE%9E%E6%88%98%E4%B9%8B%E5%A4%AA%E6%9E%81\/",
+    "wordCount" : "184",
+    "keywords" : [ "js", "Angela Fang\x27s Blog"]
+}
+</script>
+
+</head>
+
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Js全解实战之太极</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://angelafang.top/" rel="author">AngelaFang</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-08 itemprop="datePublished">December 8, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://angelafang.top/categories/js/"> js </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="本篇文章是-js-全解实战之太极-讲的是做一个旋转的太极-并且在页面上动态的展示所写的代码-主要内容有">本篇文章是 js 全解实战之太极,讲的是做一个旋转的太极，并且在页面上动态的展示所写的代码。主要内容有：</h3>
+
+<p><a href="#a1">1:重点一：将所写的内容动态显示在页面上</a></p>
+
+<p><a href="#a2">2:重点二：将所写的CSS样式应用在页面上</a></p>
+
+<p><a href="#a3">3:重点三：画会动的太极</a></p>
+
+<p><a href="#a4">4:重点四：适配移动端</a></p>
+
+<h4 id="a1"><span style="color:red;">重点一：将所写的内容动态显示在页面上</span></h4>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>1》动态展示：</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout 可以间隔一个固定的时间去执行这个操作，但是该操作只执行一次，setInterval 可以连续的操作，每次都间隔一个固定的时间。但是考虑到 setInterval 不方便取消操作，一般采用的是递归的 setTimeout。利用递归的 setTimeout 函数模拟 setInterval，可以随时停止，这是它的好处。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;做法：将所做的操作写作一个函数 fun1，里面用到了 setTimeout 函数，然后在 setTimeout 这个函数体内写所需要的操作，并且继续调用 fun1 这个函数本身。当然，在调用 fun1 函数的时候，需要加判断，当满足终止条件后，就不再调用 fun1 函数，return 即可。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例子：(html 页面里有一个 id 为 wenzi 的 span 标签，标签里会动态的展示数字，从 0 依次加 1，每 1s 变一次，直至变到 10 之后停止。)下面是 js 代码，主要看函数 fun1！</p>
+
+<pre><code>let wenzi = document.queryselector(&quot;#wenzi&quot;);
+let n = 0;
+let fun1 = ()=&gt;{
+    seTimeout(()=&gt;{wenzi.innerHTML = n;
+    n+=1;
+    if(n&lt;=10){
+       fun1();
+    }
+},1000);};
+</code></pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>2》动态展示一段文字：</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上面的是动态展示一个，接下来要让其动态展示一段文字。动态展示一段文字，使用到 string 字符串的 substring 函数。<span style="color:red;">（在声明字符串的时候，可以用反引号）</span>如图所示：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js1.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<h4 id="a2"><span style="color:red;">重点二：将所写的CSS样式应用在页面上</span></h4>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>3》如何将 css 也应用到这个页面上：</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解决思路，将样式代码写入到 style 标签里。这样就需要在 index.html 文件里加一个 id 为 sty1 的 style 标签，在 main.js 文件里获取这个元素，并向该元素中写入 css 样式内容。
+如图所示：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/html1.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js2.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js3.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+效果：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/xg1.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>4》文字细节问题：</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;写的文字需要换行，但是在 html 页面里显示的时候，回车和多个空格都会只被当做一个空格输出在页面中。所以需要使用 html 中的表示换行的br标签和表示空白的&amp;nbsp来表示回车和换行。替换用到 string 的 replace 函数。但是替换之后，需要注意，这时候换行的br标签和表示空白的&amp;nbsp的字符个数就已经变为 4 个和 5 个，不能再使用 string.substring 去获得所要显示的内容。解决办法：再定义一个字符串 string2，来存储每次需要显示的文字。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>5》具体实现：</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那接着我们就可以把在页面上显示的字也写入到 style 标签里，让里面的 css 样式生效。此时有两点需要注意的：1 是 css 样式里不允许有 html 代码，所以我们不能用 string2 去填写，继续使用 string.substring 即可；2 是由于要显示的字不仅有 css 样式，还有其他文字，这样样式也不会生效，需要将非 css 样式文字注释起来。下图是将整个页面背景色变为灰色。如图所示：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js4.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js5.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js6.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+效果：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/xg2.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<h4 id="a3"><span style="color:red;">重点三：画会动的太极</span></h4>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>6》接下来写一个会动的太极</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先画一个圆 div#taiji，可以在html文件中先将这个圆的位置固定，然后在js文件中画圆。代码如图：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js21.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js22.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接着使用背景渐变将圆分为左白又黑。这里推荐<a href="https://cssgradient.io/" rel="nofollow noreferrer" target="_blank">CSS Gradient generator</a>可以在这里面在线调试 css 效果。
+代码如图：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js23.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;然后利用伪元素去画阴阳鱼。伪元素是利用 css 写出一个类似 span 标签的元素。div#::before 和 div::after，要设置它们的 content:&ldquo;,display:block;还要对这两个元素定位。这些也可以先写在html文件里，其余的样式继续写在js文件中。<span style="color:red;">居中定位有一个常用的套路，left 和 transform 相结合。</span>代码如图：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js24.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js25.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js26.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接着继续使用背景颜色渐变在阴阳鱼的中间显出一个圆。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js19.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最后给其加上动画。代码如图：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/js20.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+效果：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/xg3.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>7》改善。</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1：当页面上显示的字过多之后，页面不会自动向下显示，需要用户手动滑动,需要进行设置。设置 window.scrollTo(0,9999);2：显示的文字不会折行,设置显示文字的div元素的 word-break 属性为 break-all。<span style="color:red;">这里注意当写的内容过多的时候，就不要使用span元素来显示了，该换为div元素。</span>代码如图：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/scroll.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/wb.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<h4 id="a4"><span style="color:red;">重点四：适配移动端</span></h4>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>8》适配移动端</b></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一要加 meta 标签，二是要用到媒体查询。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;遇到的问题，首先移动端的话，屏幕的宽度有限制，这样就需要在移动端设置 div#wenzi 和 div#taiji 为上下结构。这样 div#taiji 的位置等都需要进行调整。另外因为设置其平分这个屏幕，各占可视区域的 50%，即 50vh。后面又需要给其设置具体宽高。所以 div#taiji 外面还需要一个 div#wrapper 来包裹。而且太极的大小也要调整，由之前的400px变为200px。手机上显示的文字不能全屏显示，要设置overflow:hidden;同时也要让html页面自行拖动，即像设置window.scrollTo(0,9999)一样，设置html.scrollTo(0,9999)。代码如图：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/html2.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task29_js/html3.PNG" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>这个过程中遇到很多小细节问题需要去调整修改完善，在这里就不一一说了。学习就是这样，不断的去实践，在实践中发现问题，解决问题，深化对知识的理解掌握。</p>
+
+<p>不忘初心，努力，坚持，等待，希望，加油。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>AngelaFang </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://angelafang.top/2019/js%E5%85%A8%E8%A7%A3%E5%AE%9E%E6%88%98%E4%B9%8B%E5%A4%AA%E6%9E%81/>http://angelafang.top/2019/js%E5%85%A8%E8%A7%A3%E5%AE%9E%E6%88%98%E4%B9%8B%E5%A4%AA%E6%9E%81/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://angelafang.top/tags/js/">
+                    #js</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://angelafang.top/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://angelafang.top/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="prev" rel="prev" title="Js函数的执行时机"><i class="iconfont icon-left"></i>&nbsp;Js函数的执行时机</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://angelafang.top/">AngelaFang</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
