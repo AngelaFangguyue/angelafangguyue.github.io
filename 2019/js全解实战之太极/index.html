@@ -45,7 +45,7 @@
     "articleSection" : "posts",
     "name" : "Js全解实战之太极",
     "headline" : "Js全解实战之太极",
-    "description" : "本篇文章是 js 全解实战之太极,讲的是做一个旋转的太极，并且在页面上动态的展示所写的代码。主要内容有： 1:重点一：将所写的内容动态显示在页面上\n2:重点二：将所写的CSS样式应用在页面上\n3:重点三：画会动的太极\n4:重点四：适配移动端\n重点一：将所写的内容动态显示在页面上 \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;1》动态展示：\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;setTimeout 可以间隔一个固定的时间去执行这个操作，但是该操作只执行一次，setInterval 可以连续的操作，每次都间隔一个固定的时间。但是考虑到 setInterval 不方便取消操作，一般采用的是递归的 setTimeout。利用递归的 setTimeout 函数模拟 setInterval，可以随时停止，这是它的好处。\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;做法：将所做的操作写作一个函数 fun1，里面用到了 setTimeout 函数，然后在 setTimeout 这个函数体内写所需要的操作，并且继续调用 fun1 这个函数本身。当然，在调用 fun1 函数的时候，需要加判断，当满足终止条件后，就不再调用 fun1 函数，return 即可。\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;例子：(html 页面里有一个 id 为 wenzi 的 span 标签，标签里会动态的展示数字，从 0 依次加 1，每 1s 变一次，直至变到 10 之后停止。)下面是 js 代码，主要看函数 fun1！\nlet wenzi = document.queryselector(\x26quot;#wenzi\x26quot;); let n = 0; let fun1 = ()=\x26gt;{ seTimeout(()=\x26gt;{wenzi.innerHTML = n; n\x2b=1; if(n\x26lt;=10){ fun1(); } },1000);};  \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;2》动态展示一段文字：",
+    "description" : "本篇文章是 js 全解实战之太极,讲的是做一个旋转的太极，并且在页面上动态的展示所写的代码。主要内容有： 1:重点一：将所写的内容动态显示在页面上\n2:重点二：将所写的CSS样式应用在页面上\n3:重点三：画会动的太极\n4:重点四：适配移动端\n点击查看预览效果。\n重点一：将所写的内容动态显示在页面上 \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;1》动态展示：\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;setTimeout 可以间隔一个固定的时间去执行这个操作，但是该操作只执行一次，setInterval 可以连续的操作，每次都间隔一个固定的时间。但是考虑到 setInterval 不方便取消操作，一般采用的是递归的 setTimeout。利用递归的 setTimeout 函数模拟 setInterval，可以随时停止，这是它的好处。\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;做法：将所做的操作写作一个函数 fun1，里面用到了 setTimeout 函数，然后在 setTimeout 这个函数体内写所需要的操作，并且继续调用 fun1 这个函数本身。当然，在调用 fun1 函数的时候，需要加判断，当满足终止条件后，就不再调用 fun1 函数，return 即可。\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;例子：(html 页面里有一个 id 为 wenzi 的 span 标签，标签里会动态的展示数字，从 0 依次加 1，每 1s 变一次，直至变到 10 之后停止。)下面是 js 代码，主要看函数 fun1！\nlet wenzi = document.queryselector(\x26quot;#wenzi\x26quot;); let n = 0; let fun1 = ()=\x26gt;{ seTimeout(()=\x26gt;{wenzi.innerHTML = n; n\x2b=1; if(n\x26lt;=10){ fun1(); } },1000);};  \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;2》动态展示一段文字：",
     "inLanguage" : "zh-Hans",
     "author" : "AngelaFang",
     "creator" : "AngelaFang",
@@ -56,7 +56,7 @@
     "datePublished": "2019-12-08 20:47:50 \x2b0800 CST",
     "dateModified" : "2019-12-08 20:47:50 \x2b0800 CST",
     "url" : "http:\/\/angelafang.top\/2019\/js%E5%85%A8%E8%A7%A3%E5%AE%9E%E6%88%98%E4%B9%8B%E5%A4%AA%E6%9E%81\/",
-    "wordCount" : "184",
+    "wordCount" : "185",
     "keywords" : [ "js", "Angela Fang\x27s Blog"]
 }
 </script>
@@ -158,6 +158,8 @@
 <p><a href="#a3">3:重点三：画会动的太极</a></p>
 
 <p><a href="#a4">4:重点四：适配移动端</a></p>
+
+<p><b style="font-size:20px;">点击查看<a href="http://angelafang.top/task29parcel_cv/dist/first.html" rel="nofollow noreferrer" target="_blank">预览效果</a>。</b></p>
 
 <h4 id="a1"><span style="color:red;">重点一：将所写的内容动态显示在页面上</span></h4>
 
