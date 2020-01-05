@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>js jQuery on Angela Fang&#39;s Blog</title>
+    <link>http://angelafang.top/tags/js-jquery/</link>
+    <description>Recent content in js jQuery on Angela Fang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 05 Jan 2020 11:39:13 +0800</lastBuildDate>
+    
+	<atom:link href="http://angelafang.top/tags/js-jquery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>浅谈jQuery</title>
+      <link>http://angelafang.top/2020/%E6%B5%85%E8%B0%88jquery/</link>
+      <pubDate>Sun, 05 Jan 2020 11:39:13 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/%E6%B5%85%E8%B0%88jquery/</guid>
+      <description>Everyday is an opportunity to learn and grow。
+现在是公元 0202 年，1 月 5 日，腊月十一。距离农历新年还不到 二十 天了，加油鸭
+本篇文章主要总结梳理最近一段时间对 jQuery 的学习理解，主要内容：
+1:jQuery 的设计思想
+2:具体分析
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.1:获取元素
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.2:元素操作
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.3:链式操作
+前言：
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; jQuery 是目前使用最为广泛的 js 函数库，经久不衰。这在前端业界内是一个奇观，目前还没有哪一个库能像它这样，有长达十几年的寿命，地位仍屹立不倒，不得不称之为经典。这要归功于它的设计思想。感谢那些为此付出了心血的前辈们。对于网页开发者来说，学好 jQuery 是必要的。通过学习 jQuery，我们可以了解业界最通用的技术，为将来学习更高级的库打基础。
+自己的碎碎念：
+jQuery 就是获取元素，进行操作。通过 jQuery 构造函数构造出一个 jQuery 对象，该对象可以对选择到的元素进行操作（使用了闭包来隐藏细节，只要 jQuery 对象存在，对应要获取的元素就也一直存在。），操作之后返回的还是 jQuery 对象，因此可以进行链式操作。jQuery 别出心裁的没有使用 new 来构造对象;而且用别名$.fn代替$.prototype,jQuery()也简写为$();闭包隐藏细节;getter/setter;$()可以接受不同的参数，重载;以及根据不同的浏览器采用不同的代码，适配。
+1:jQuery 的设计思想 jQuery 核心思想是：获取元素，对其操作。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在使用 jQuery 的时候，首先根据选择需要，去获取相对应的元素，接着返回一个 jQuery 对象，而不是返回获取到的元素。重点在于返回的这个 jQuery 对象，提供了许多 api，去操作获取的元素！！！
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(这用到了使用闭包来隐藏细节，只要这个 jQuery 对象一直存在，查找到的元素也会一直存在。还有链式操作，因为每次操作，返回的都是 jQuery 对象。)
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这样我们就可以对目标元素进行一系列的操作，所有操作都可以连接在一起，以链条的形式写出来，这就是链式操作。这是因为jQuery 的每一步操作，返回的都是一个 jQuery 对象。另外 jQuery 还提供了 end()方法来返回到上一个结果集。</description>
+    </item>
+    
+  </channel>
+</rss>
