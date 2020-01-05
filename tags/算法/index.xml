@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on Angela Fang&#39;s Blog</title>
+    <link>http://angelafang.top/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on Angela Fang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sat, 21 Dec 2019 12:09:37 +0800</lastBuildDate>
+    
+	<atom:link href="http://angelafang.top/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>算法总结</title>
+      <link>http://angelafang.top/2019/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 21 Dec 2019 12:09:37 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2019/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>本篇文章主要介绍常见的几种排序算法，主要内容：
+1:前言
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.1:递归和循环
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.2:找出数组中的最小值
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.2.1:使用递归找出数组中的最小值
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.2.2:使用循环找出数组中的最小值
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.3:找出数组中的最小值的下标
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.3.1:使用indexOf
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.3.2:使用循环
+2:选择排序
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.1:递归实现
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.2:循环实现
+3:快速排序
+4:归并排序
+5:计数排序
+6:冒泡排序
+7:插入排序
+ 让自身有价值。
+现在距离 0202 年还不到 11 天了，加油鸭
+1:前言 1.1：递归都可以用循环来实现。递归的关键点在于有一个结束的终止条件。{#a11}
+1.2：找出一个数组中的最小数。(注意这里的数组默认其没有重复值){#a12} 1.2.1&amp;gt;用递归的方法：
+思路：
+》当一个数组里有两个数a,b的时候，就相互比较，取最小的。这也是终结条件，即当比较的数组中只剩两个数的时候！！！另外也可用js内置的API:Math.min.apply(null,[6,5])或者Math.min.call(null,6,5);就是求6，5这两个数中的最小值。
+》当有三个数a,b,c的时候，可以看作a和X这两个数进行比较。而X就是b和c这两个数进行比较的结果。
+》当有四个数a,b,c,d的时候，可以看作a和X这两个数进行比较。而X又是b,c,d三个数进行比较的结果。
+》依次类推。当有n个数的时候，就是拿第一个数和 （剩余的n-1个数比较出来的结果）进行比较。
+代码：
+let min = (numbers)=&amp;gt;{ if(numbers.length&amp;gt;2){ return min([numbers[0],min(numbers.slice(1)])); } return numbers[0]&amp;lt;numbers[1]?numbers[0]:numbers[1]; }; let arr = [7,9,5,6,3,1,4]; var res = min(arr); console.log(res);  运行实例如下：  1.2.2&amp;gt;用循环的方法：
+思路：
+》定义一个变量a去存放数组中的第一个数，然后从数组下标为1开始，遍历循环，每次将遍历循环数组中的数与变量a进行比较，将得到的最小值赋值给a。这样遍历下来，a就是该数组中最小的数值。
+代码：
+let min = (numbers)=&amp;gt;{ let minn=numbers[0] for(let i=1;i&amp;lt;numbers.</description>
+    </item>
+    
+  </channel>
+</rss>
