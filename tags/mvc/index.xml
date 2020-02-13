@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mvc on Angela Fang&#39;s Blog</title>
+    <link>http://angelafang.top/tags/mvc/</link>
+    <description>Recent content in mvc on Angela Fang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 11 Feb 2020 20:06:37 +0800</lastBuildDate>
+    
+	<atom:link href="http://angelafang.top/tags/mvc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MVC设计模式</title>
+      <link>http://angelafang.top/2020/mvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 11 Feb 2020 20:06:37 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/mvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>本篇文章介绍 MVC 设计模式。主要内容有： 1:MVC
+2:关于 eventBus
+3:表驱动编程
+4:其他
+1:MVC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;关于经典的设计模式 MVC，M(model)数据模型，负责操作所有数据，V(view)视图，负责操作所有 ui 界面，C(controler)控制器，前两者之外的就放在这个模块。模块化之后，需要操作哪个部分，就可以直接去该部分修改。在实际操作中，会发现，view 模块和 controller 模块联系紧密，因此将其合为一个 view 模块，而现今流行的 vue 框架，则是将三个模块全部整合在了一起。因为比较简单的需求，这三个模块合在一起是完全 ok 的。掌握了 MVC 这个思想会让你对整个操作，心里有一个清晰的把握，知道是哪个部分，妥善处理数据视图之间的关系。也会更加清楚的理解这些流行框架的设计思想。对于 MVC，一般我们的设计是这样的：
+1》M 模块，有数据 data 以及对数据的操作。
+const model = { data:xxxx,//数据 //对数据的操作，增删改查 create(){/_对数据的增操作_/}, delete(){/_对数据的删除操作_/}, update(){/_对数据的修改操作_/}, get(){/_对数据的获取操作_/}, };  将上述代码抽象成类，就是这样：
+class Model{ constructor(data){ this.data = data; this.updateData = function(){ /_对数据的修改操作_///每个实例对象的操作是不一样的 } }, //对数据的操作，增删改查，这些是实例对象共有的方法 create(){/_对数据的增操作_/}, delete(){/_对数据的删除操作_/}, update(){/_对数据的修改操作_/}, get(){/_对数据的获取操作_/}, }  另外这里我们需要注意，当抽象成 Model 类，对于生成的每个实例对象的操作是不一样的，因此我们在定义 Model 类的时候，将其操作的方法也放在了 constructor 里面,如上面代码中的 updateData 方法。这样在生成实例对象的时候，用户就可以把对该实例对象的操作传过去。因为每个实例对象对数据的操作是不一样的。另外，也在 Model 类中保留了一些数据操作方法的原型 create，delete，update,get 方法。若所有生成的实例对象中都有些对数据相同的操作，即可放在这里面。</description>
+    </item>
+    
+  </channel>
+</rss>

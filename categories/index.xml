@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 29 Jan 2020 22:02:05 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 20:06:37 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mvc</title>
+      <link>http://angelafang.top/categories/mvc/</link>
+      <pubDate>Tue, 11 Feb 2020 20:06:37 +0800</pubDate>
+      
+      <guid>http://angelafang.top/categories/mvc/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ajax promise</title>
@@ -89,15 +98,6 @@
       <pubDate>Tue, 19 Nov 2019 17:54:53 +0800</pubDate>
       
       <guid>http://angelafang.top/categories/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>生活随笔</title>
-      <link>http://angelafang.top/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/</link>
-      <pubDate>Mon, 04 Nov 2019 17:15:15 +0800</pubDate>
-      
-      <guid>http://angelafang.top/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/</guid>
       <description></description>
     </item>
     
