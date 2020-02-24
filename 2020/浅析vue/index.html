@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noodp" />
+  
+  <meta name="author" content="AngelaFang" />
+  
+  <link rel="prev" href="http://angelafang.top/2020/mvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" />
+  
+  <link rel="canonical" href="http://angelafang.top/2020/%E6%B5%85%E6%9E%90vue/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>
+    
+    
+    浅析vue | Angela Fang&#39;s Blog
+    
+  </title>
+  <meta name="title" content="浅析vue | Angela Fang&#39;s Blog"/>
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/angelafang.top\/"
+    },
+    "articleSection" : "posts",
+    "name" : "浅析vue",
+    "headline" : "浅析vue",
+    "description" : "本篇文章是关于 vue 的介绍之一，主要讲一下 Vue 两个版本的区别和使用方法。\n1：两个版本对应的文件名 完整的 vue 版本名字是 vue.js,非完整版本也就是仅运行时版本名字是 vue.runtime.js，加了一个 runtime。\n当我们在生产环境的时候，即把代码打包上线上正式环境使用，无论用的是完整版本还是非完整版本，都要使用加了 mini 的版本（即 vue.mini.js 或者 vue.runtime.mini.js）。因为加了 mini 的，会去掉注释，体积变小。\n完整版： 非完整版： 建议我们在开发的时候，使用非完整版本，当然这个是视实际开发情况来看，仅仅是建议。\n使用 vue 的时候，我们可以直接 cdn 引入，即在 html 文件中使用 script 标签去引入。也可以使用 webpack 引入，默认使用 webpack 引入的是非完整版，如果要使用完整版本的话，需要配置 alias。还可以使用@vue\/cli 引入，这种方法默认也是非完整版，想要使用完整版本，可以去查看 vuejs相关文档。\n2：template 和 render 怎么用 2.1》template：string 类型；一个字符串模板；作为 Vue 实例的标识使用。\n\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;如果引用的是完整版的 vue，那么在 new Vue 的时候，里面的参数对象可以有一个 template 的属性，值就是 html 内容。如下：\n new vue({ template: `\x26lt;div id=\x26quot;app1\x26quot; class=\x26quot;app\x26quot;\x26gt; \x26lt;div\x26gt; \x26lt;span id=\x26quot;number\x26quot;\x26gt;HELLO WORLD\x26lt;\/span\x26gt; \x26lt;\/div\x26gt; \x26lt;\/div\x26gt;` });  \x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;如果引用的是非完整版的 vue，那么是在新建的 vue 文件中，将 html 内容写在 template 的标签中。如下：",
+    "inLanguage" : "zh-Hans",
+    "author" : "AngelaFang",
+    "creator" : "AngelaFang",
+    "publisher": "AngelaFang",
+    "accountablePerson" : "AngelaFang",
+    "copyrightHolder" : "AngelaFang",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-17 17:38:54 \x2b0800 CST",
+    "dateModified" : "2020-02-17 17:38:54 \x2b0800 CST",
+    "url" : "http:\/\/angelafang.top\/2020\/%E6%B5%85%E6%9E%90vue\/",
+    "wordCount" : "154",
+    "keywords" : [ "vue", "Angela Fang\x27s Blog"]
+}
+</script>
+
+</head>
+
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">浅析vue</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://angelafang.top/" rel="author">AngelaFang</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-02-17 itemprop="datePublished">February 17, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://angelafang.top/categories/vue/"> vue </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>本篇文章是关于 vue 的介绍之一，主要讲一下 Vue 两个版本的区别和使用方法。</p>
+
+<hr />
+
+<h4 id="1-两个版本对应的文件名">1：两个版本对应的文件名</h4>
+
+<p>完整的 vue 版本名字是 vue.js,非完整版本也就是仅运行时版本名字是 vue.runtime.js，加了一个 runtime。</p>
+
+<p>当我们在生产环境的时候，即把代码打包上线上正式环境使用，无论用的是完整版本还是非完整版本，都要使用加了 mini 的版本（即 vue.mini.js 或者 vue.runtime.mini.js）。因为加了 mini 的，会去掉注释，体积变小。</p>
+
+<p>完整版：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task56Vue/vuejs.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+非完整版：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task56Vue/vuejs.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>建议我们在开发的时候，使用非完整版本，当然这个是视实际开发情况来看，仅仅是建议。</p>
+
+<p>使用 vue 的时候，我们可以直接 cdn 引入，即在 html 文件中使用 script 标签去引入。也可以使用 webpack 引入，默认使用 webpack 引入的是非完整版，如果要使用完整版本的话，需要配置 alias。还可以使用@vue/cli 引入，这种方法默认也是非完整版，想要使用完整版本，可以去查看 <a href="https://cn.vuejs.org/v2/guide/installation.html" rel="nofollow noreferrer" target="_blank">vuejs</a>相关文档。</p>
+
+<hr />
+
+<h4 id="2-template-和-render-怎么用">2：template 和 render 怎么用</h4>
+
+<p>2.1》template：string 类型；一个字符串模板；作为 Vue 实例的标识使用。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;如果引用的是完整版的 vue，那么在 new Vue 的时候，里面的参数对象可以有一个 template 的属性，值就是 html 内容。如下：</p>
+
+<pre><code>  new vue({
+    template: `&lt;div id=&quot;app1&quot; class=&quot;app&quot;&gt;
+    &lt;div&gt;
+      &lt;span id=&quot;number&quot;&gt;HELLO WORLD&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;`
+  });
+
+</code></pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;如果引用的是非完整版的 vue，那么是在新建的 vue 文件中，将 html 内容写在 template 的标签中。如下：</p>
+
+<pre><code>&lt;template&gt;
+  &lt;div id=&quot;app1&quot; class=&quot;app&quot;&gt;
+    &lt;div&gt;
+      &lt;span id=&quot;number&quot;&gt;HELLO WORLD&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<p>2.2》render：函数类型，字符串模板的代替方案。该渲染函数接收一个 createElement 方法作为第一个参数用来创建 VNode。（createElement 到底会返回什么呢？其实不是一个实际的 DOM 元素。它更准确的名字可能是 createNodeDescription，因为它所包含的信息会告诉 Vue 页面上需要渲染什么样的节点，包括及其子节点的描述信息。我们把这样的节点描述为“虚拟节点 (virtual node)”，也常简写它为“VNode”。“虚拟 DOM”是我们对由 Vue 组件树建立起来的整个 VNode 树的称呼。）</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;使用完整版本，在创建 Vue 实例的时候，是不需要写 render 属性的。使用非完整版本的话，如果使用了 vue 单文件组件模板的话，也是不需要使用 render。只有在使用非完整版 vue，并且是用 js 构建视图的时候，在 new Vue 的时候，要添加 render 属性，如下图：</p>
+
+<pre><code> new Vue({
+   render(h) {
+     return h(&quot;div&quot;, [
+    '先写一些文字',
+    h('span', 'HELLO WORLD')] );
+  },
+ });
+</code></pre>
+
+<hr />
+
+<h4 id="3-用-codesandbox-io-写-vue-代码">3：用 codesandbox.io 写 Vue 代码</h4>
+
+<p>1：进入<a href="https://codesandbox.io/" rel="nofollow noreferrer" target="_blank">codesandbox</a>;看到如下界面,点击红线标注的地方；
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task56Vue/cs1.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+2：如下图，第一个红线标注的是创建一个 Sandbox,根据自己需要选择合适的框架，图中点击第二个红线标注的 vue，表示创建一个 vue 项目，
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task56Vue/cs2.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+3：如下图，进入创建的 vue 项目中，可以进行编辑，如果需要的话，，点击图中的 file，选择 Export to ZIP 导出项目到本地：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task56Vue/cs3.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>AngelaFang </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://angelafang.top/2020/%E6%B5%85%E6%9E%90vue/>http://angelafang.top/2020/%E6%B5%85%E6%9E%90vue/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://angelafang.top/tags/vue/">
+                    #vue</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://angelafang.top/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://angelafang.top/2020/mvc%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="prev" rel="prev" title="MVC设计模式"><i class="iconfont icon-left"></i>&nbsp;MVC设计模式</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://angelafang.top/">AngelaFang</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

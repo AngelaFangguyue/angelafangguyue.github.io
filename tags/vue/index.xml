@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vue on Angela Fang&#39;s Blog</title>
+    <link>http://angelafang.top/tags/vue/</link>
+    <description>Recent content in vue on Angela Fang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 17 Feb 2020 17:38:54 +0800</lastBuildDate>
+    
+	<atom:link href="http://angelafang.top/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>浅析vue</title>
+      <link>http://angelafang.top/2020/%E6%B5%85%E6%9E%90vue/</link>
+      <pubDate>Mon, 17 Feb 2020 17:38:54 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/%E6%B5%85%E6%9E%90vue/</guid>
+      <description>本篇文章是关于 vue 的介绍之一，主要讲一下 Vue 两个版本的区别和使用方法。
+1：两个版本对应的文件名 完整的 vue 版本名字是 vue.js,非完整版本也就是仅运行时版本名字是 vue.runtime.js，加了一个 runtime。
+当我们在生产环境的时候，即把代码打包上线上正式环境使用，无论用的是完整版本还是非完整版本，都要使用加了 mini 的版本（即 vue.mini.js 或者 vue.runtime.mini.js）。因为加了 mini 的，会去掉注释，体积变小。
+完整版： 非完整版： 建议我们在开发的时候，使用非完整版本，当然这个是视实际开发情况来看，仅仅是建议。
+使用 vue 的时候，我们可以直接 cdn 引入，即在 html 文件中使用 script 标签去引入。也可以使用 webpack 引入，默认使用 webpack 引入的是非完整版，如果要使用完整版本的话，需要配置 alias。还可以使用@vue/cli 引入，这种方法默认也是非完整版，想要使用完整版本，可以去查看 vuejs相关文档。
+2：template 和 render 怎么用 2.1》template：string 类型；一个字符串模板；作为 Vue 实例的标识使用。
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果引用的是完整版的 vue，那么在 new Vue 的时候，里面的参数对象可以有一个 template 的属性，值就是 html 内容。如下：
+ new vue({ template: `&amp;lt;div id=&amp;quot;app1&amp;quot; class=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;span id=&amp;quot;number&amp;quot;&amp;gt;HELLO WORLD&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;` });  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果引用的是非完整版的 vue，那么是在新建的 vue 文件中，将 html 内容写在 template 的标签中。如下：</description>
+    </item>
+    
+  </channel>
+</rss>

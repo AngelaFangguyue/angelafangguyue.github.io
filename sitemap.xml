@@ -4,7 +4,7 @@
     <url>
       <loc>http://angelafang.top/</loc>
       
-      <lastmod>2020-02-11T20:06:37+08:00</lastmod>
+      <lastmod>2020-02-17T17:38:54+08:00</lastmod>
       
       
       
@@ -14,7 +14,57 @@
     <url>
       <loc>http://angelafang.top/categories/</loc>
       
-      <lastmod>2020-02-11T20:06:37+08:00</lastmod>
+      <lastmod>2020-02-17T17:38:54+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://angelafang.top/posts/</loc>
+      
+      <lastmod>2020-02-17T17:38:54+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://angelafang.top/tags/</loc>
+      
+      <lastmod>2020-02-17T17:38:54+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://angelafang.top/tags/vue/</loc>
+      
+      <lastmod>2020-02-17T17:38:54+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://angelafang.top/categories/vue/</loc>
+      
+      <lastmod>2020-02-17T17:38:54+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://angelafang.top/2020/%E6%B5%85%E6%9E%90vue/</loc>
+      
+      <lastmod>2020-02-17T17:38:54+08:00</lastmod>
       
       
       
@@ -52,27 +102,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/posts/</loc>
-      
-      <lastmod>2020-02-11T20:06:37+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>http://angelafang.top/tags/</loc>
-      
-      <lastmod>2020-02-11T20:06:37+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>http://angelafang.top/tags/ajax-promise/</loc>
+      <loc>http://angelafang.top/categories/ajax-promise/</loc>
       
       <lastmod>2020-01-29T22:02:05+08:00</lastmod>
       
@@ -82,7 +112,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/categories/ajax-promise/</loc>
+      <loc>http://angelafang.top/tags/ajax-promise/</loc>
       
       <lastmod>2020-01-29T22:02:05+08:00</lastmod>
       
@@ -112,7 +142,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/tags/aa/</loc>
+      <loc>http://angelafang.top/categories/aa/</loc>
       
       <lastmod>2020-01-05T21:07:21+08:00</lastmod>
       
@@ -122,7 +152,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/categories/aa/</loc>
+      <loc>http://angelafang.top/tags/aa/</loc>
       
       <lastmod>2020-01-05T21:07:21+08:00</lastmod>
       
@@ -222,7 +252,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/categories/js-js%E5%87%BD%E6%95%B0-%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5-%E9%97%AD%E5%8C%85-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
+      <loc>http://angelafang.top/tags/js-js%E5%87%BD%E6%95%B0-%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5-%E9%97%AD%E5%8C%85-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
       
       <lastmod>2019-12-06T08:45:30+08:00</lastmod>
       
@@ -232,7 +262,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/tags/js-js%E5%87%BD%E6%95%B0-%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5-%E9%97%AD%E5%8C%85-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
+      <loc>http://angelafang.top/categories/js-js%E5%87%BD%E6%95%B0-%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5-%E9%97%AD%E5%8C%85-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/</loc>
       
       <lastmod>2019-12-06T08:45:30+08:00</lastmod>
       
@@ -312,7 +342,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/tags/url/</loc>
+      <loc>http://angelafang.top/categories/url/</loc>
       
       <lastmod>2019-11-21T17:08:56+08:00</lastmod>
       
@@ -322,7 +352,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/categories/url/</loc>
+      <loc>http://angelafang.top/tags/url/</loc>
       
       <lastmod>2019-11-21T17:08:56+08:00</lastmod>
       
@@ -392,7 +422,37 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/tags/html/</loc>
+      <loc>http://angelafang.top/about/1104about/</loc>
+      
+      <lastmod>2019-11-04T17:15:15+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://angelafang.top/tags/%E7%94%9F%E6%B4%BB/</loc>
+      
+      <lastmod>2019-11-04T17:15:15+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://angelafang.top/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/</loc>
+      
+      <lastmod>2019-11-04T17:15:15+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>http://angelafang.top/categories/html/</loc>
       
       <lastmod>2019-11-04T16:53:20+08:00</lastmod>
       
@@ -402,7 +462,7 @@
     </url>
   
     <url>
-      <loc>http://angelafang.top/categories/html/</loc>
+      <loc>http://angelafang.top/tags/html/</loc>
       
       <lastmod>2019-11-04T16:53:20+08:00</lastmod>
       
