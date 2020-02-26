@@ -6,10 +6,35 @@
     <description>Recent content in vue on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 17 Feb 2020 17:38:54 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Feb 2020 20:27:40 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue浅析之构造选项</title>
+      <link>http://angelafang.top/2020/vue%E6%B5%85%E6%9E%90%E4%B9%8B%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</link>
+      <pubDate>Wed, 26 Feb 2020 20:27:40 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/vue%E6%B5%85%E6%9E%90%E4%B9%8B%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</guid>
+      <description>本篇文章介绍 Vue 实例的构造选项。主要内容有： 1:关于 options
+2:options 之数据
+3:options 之 DOM
+4:options 之生命周期钩子
+5:options 之资源
+6:options 之组合
+7:options 之其他
+1:options 关于 Vue 的选项 options 分为六大类，分别是数据，DOM，生命周期钩子，资源，组合，其他。每类中具体又有很多属性。
+数据中有 data，props，propsData，computed，methods，watch；DOM 中有 el，template，render，renderError；
+生命周期钩子中有 beforeCreate，created，beforeMount，mounted，beforeUpdate，updated，activated，deactivated，beforeDestroy，destroyed，errorCaptured；
+资源中有 directives，filters，components；
+组合中有 parent，mixins，extends，provide / inject；
+其它中有 name，delimiters，functional，model，inheritAttrs，comments。
+2：options 之数据 选项数据之 data：可以是一个对象或函数，但是组件的定义只接受函数。它就是 vue 实例的数据对象。大概来说，data 应该只能是数据。实例创建完成之后，可以直接使用 vm.$data 去访问原始数据对象。而且vm.$data.a 也可以写成 vm.a。在创建实例的时候，直接给实例添加这个 data 属性，属性值就为需要的数据。另外该属性可以用\$.mount 去代替。
+选项数据之 props：可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代。
+选项数据之 methods：methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 this 自动绑定为 Vue 实例。注意，不应该使用箭头函数来定义 method 函数，因为箭头函数绑定了父级作用域的上下文。
+完整版： 非完整版： 查看 vuejs相关文档。</description>
+    </item>
     
     <item>
       <title>浅析vue</title>
