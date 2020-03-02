@@ -24,6 +24,7 @@
 5:options 之资源
 6:options 之组合
 7:options 之其他
+8:vue 数据响应式的理解
 1:options 关于 Vue 的选项 options 分为六大类，分别是数据，DOM，生命周期钩子，资源，组合，其他。每类中具体又有很多属性。
 数据中有 data，props，propsData，computed，methods，watch；DOM 中有 el，template，render，renderError；
 生命周期钩子中有 beforeCreate，created，beforeMount，mounted，beforeUpdate，updated，activated，deactivated，beforeDestroy，destroyed，errorCaptured；
@@ -32,8 +33,7 @@
 其它中有 name，delimiters，functional，model，inheritAttrs，comments。
 2：options 之数据 选项数据之 data：可以是一个对象或函数，但是组件的定义只接受函数。它就是 vue 实例的数据对象。大概来说，data 应该只能是数据。实例创建完成之后，可以直接使用 vm.$data 去访问原始数据对象。而且vm.$data.a 也可以写成 vm.a。在创建实例的时候，直接给实例添加这个 data 属性，属性值就为需要的数据。另外该属性可以用\$.mount 去代替。
 选项数据之 props：可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代。
-选项数据之 methods：methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 this 自动绑定为 Vue 实例。注意，不应该使用箭头函数来定义 method 函数，因为箭头函数绑定了父级作用域的上下文。
-完整版： 非完整版： 查看 vuejs相关文档。</description>
+选项数据之 methods：methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 this 自动绑定为 Vue 实例。注意，不应该使用箭头函数来定义 method 函数，因为箭头函数绑定了父级作用域的上下文。</description>
     </item>
     
     <item>
