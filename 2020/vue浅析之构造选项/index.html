@@ -45,7 +45,7 @@
     "articleSection" : "posts",
     "name" : "Vue浅析之构造选项",
     "headline" : "Vue浅析之构造选项",
-    "description" : "本篇文章介绍 Vue 实例的构造选项。主要内容有： 1:关于 options\n2:options 之数据\n3:options 之 DOM\n4:options 之生命周期钩子\n5:options 之资源\n6:options 之组合\n7:options 之其他\n8:vue 数据响应式的理解\n1:options 关于 Vue 的选项 options 分为六大类，分别是数据，DOM，生命周期钩子，资源，组合，其他。每类中具体又有很多属性。\n数据中有 data，props，propsData，computed，methods，watch；DOM 中有 el，template，render，renderError；\n生命周期钩子中有 beforeCreate，created，beforeMount，mounted，beforeUpdate，updated，activated，deactivated，beforeDestroy，destroyed，errorCaptured；\n资源中有 directives，filters，components；\n组合中有 parent，mixins，extends，provide \/ inject；\n其它中有 name，delimiters，functional，model，inheritAttrs，comments。\n2：options 之数据 选项数据之 data：可以是一个对象或函数，但是组件的定义只接受函数。它就是 vue 实例的数据对象。大概来说，data 应该只能是数据。实例创建完成之后，可以直接使用 vm.$data 去访问原始数据对象。而且vm.$data.a 也可以写成 vm.a。在创建实例的时候，直接给实例添加这个 data 属性，属性值就为需要的数据。另外该属性可以用\\$.mount 去代替。\n选项数据之 props：可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代。\n选项数据之 methods：methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 this 自动绑定为 Vue 实例。注意，不应该使用箭头函数来定义 method 函数，因为箭头函数绑定了父级作用域的上下文。",
+    "description" : "本篇文章介绍 Vue 实例的构造选项。主要内容有： 1:关于 options\n2:options 之数据\n3:options 之 DOM\n4:options 之生命周期钩子\n5:options 之资源\n6:options 之组合\n7:options 之其他\n8:vue 数据响应式的理解\n9:关于vue选项数据之computed和watch的区别\n1:options 关于 Vue 的选项 options 分为六大类，分别是数据，DOM，生命周期钩子，资源，组合，其他。每类中具体又有很多属性。\n数据中有 data，props，propsData，computed，methods，watch；DOM 中有 el，template，render，renderError；\n生命周期钩子中有 beforeCreate，created，beforeMount，mounted，beforeUpdate，updated，activated，deactivated，beforeDestroy，destroyed，errorCaptured；\n资源中有 directives，filters，components；\n组合中有 parent，mixins，extends，provide \/ inject；\n其它中有 name，delimiters，functional，model，inheritAttrs，comments。\n2：options 之数据 选项数据之 data：可以是一个对象或函数，但是组件的定义只接受函数。它就是 vue 实例的数据对象。大概来说，data 应该只能是数据。实例创建完成之后，可以直接使用 vm.$data 去访问原始数据对象。而且vm.$data.a 也可以写成 vm.a。在创建实例的时候，直接给实例添加这个 data 属性，属性值就为需要的数据。另外该属性可以用\\$.mount 去代替。\n选项数据之 props：可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代。\n选项数据之 methods：methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 this 自动绑定为 Vue 实例。注意，不应该使用箭头函数来定义 method 函数，因为箭头函数绑定了父级作用域的上下文。",
     "inLanguage" : "zh-Hans",
     "author" : "AngelaFang",
     "creator" : "AngelaFang",
@@ -56,7 +56,7 @@
     "datePublished": "2020-02-26 20:27:40 \x2b0800 CST",
     "dateModified" : "2020-02-26 20:27:40 \x2b0800 CST",
     "url" : "http:\/\/angelafang.top\/2020\/vue%E6%B5%85%E6%9E%90%E4%B9%8B%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9\/",
-    "wordCount" : "580",
+    "wordCount" : "586",
     "keywords" : [ "vue", "Angela Fang\x27s Blog"]
 }
 </script>
@@ -166,6 +166,8 @@
 <p><a href="#a7">7:options 之其他</a></p>
 
 <p><a href="#a8">8:vue 数据响应式的理解</a></p>
+
+<p><a href="#a9">9:关于vue选项数据之computed和watch的区别</a></p>
 
 <hr />
 
@@ -430,6 +432,21 @@ Vue.nextTick(function () {
   }
 })
 </code></pre>
+
+<hr />
+
+<h4 id="a9">9：关于vue选项数据之computed和watch的区别</h4>
+
+<p>computed是计算属性，用的时候，直接当属性去使用，不必写括号去调用。会依赖数据的变化去计算属性。计算属性的结果会被缓存，除非依赖的响应式属性变化才会重新计算。</p>
+
+<p>watch是监听侦听。当在数据发生变化时，执行函数。watch提供了两个选项，immediate，默认是false，true的话表示设置监听之后被立即调用。deep，默认是false，true的话表示监听会在任何被侦听的对象的property改变时被调用，不论其被嵌套多深。</p>
+
+<p>如果一个数据依赖于其他数据，那么把这个数据设计为computed；如果需要在某个数据变化时做一些事情，使用watch来观察这个数据变化。</p>
+
+<p>下面的例子，有两个展示板块，上面用到的是computed计算属性，下面用到的是watch监听。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task56Vue/com.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task56Vue/comm1.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/task56Vue/comm2.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
     </div>
 
