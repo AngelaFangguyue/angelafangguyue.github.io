@@ -24,8 +24,11 @@
 4:options 之生命周期钩子
 5:options 之资源
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.1:options 之资源-directives 指令以及修饰符
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.2:Vue模板的特点
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.2:Vue 模板的特点
 6:options 之组合
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6.1:options 之组合-mixins
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6.2:options 之组合-extends
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6.3:options 之组合-provide/inject
 7:options 之其他
 8:vue 数据响应式的理解
 10:关于 vue 选项资源之 directives 指令
@@ -35,7 +38,7 @@
 资源中有 directives，filters，components；
 组合中有 parent，mixins，extends，provide / inject；
 其它中有 name，delimiters，functional，model，inheritAttrs，comments。
-2：options 之数据 选项数据之 data：可以是一个对象或函数，但是组件的定义只接受函数。它就是 vue 实例的数据对象。大概来说，data 应该只能是数据。实例创建完成之后，可以直接使用 vm.$data 去访问原始数据对象。而且vm.$data.a 也可以写成 vm.a。在创建实例的时候，直接给实例添加这个 data 属性，属性值就为需要的数据。另外该属性可以用\$.mount 去代替。</description>
+2：options 之数据 选项数据之 data：可以是一个对象或函数，但是组件的定义只接受函数。它就是 vue 实例的数据对象。大概来说，data 应该只能是数据。实例创建完成之后，可以直接使用 vm.</description>
     </item>
     
     <item>
