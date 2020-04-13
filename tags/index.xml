@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 26 Feb 2020 20:27:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2020 10:39:24 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React 框架</title>
+      <link>http://angelafang.top/tags/react-%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Wed, 18 Mar 2020 10:39:24 +0800</pubDate>
+      
+      <guid>http://angelafang.top/tags/react-%E6%A1%86%E6%9E%B6/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>vue</title>
@@ -116,15 +125,6 @@
       <pubDate>Fri, 08 Nov 2019 11:17:43 +0800</pubDate>
       
       <guid>http://angelafang.top/tags/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>生活</title>
-      <link>http://angelafang.top/tags/%E7%94%9F%E6%B4%BB/</link>
-      <pubDate>Mon, 04 Nov 2019 17:15:15 +0800</pubDate>
-      
-      <guid>http://angelafang.top/tags/%E7%94%9F%E6%B4%BB/</guid>
       <description></description>
     </item>
     
