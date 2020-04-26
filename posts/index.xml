@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 18 Mar 2020 10:39:24 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2020 18:40:56 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React之useState</title>
+      <link>http://angelafang.top/2020/react%E4%B9%8Busestate/</link>
+      <pubDate>Mon, 13 Apr 2020 18:40:56 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/react%E4%B9%8Busestate/</guid>
+      <description>我的 React 学习笔记之二 useState 原理以及自定义 Hook： 1:useState 原理
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.1:自己实现简单的 useState 之 myUseState
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.2:myUseState 之多个 useState
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.3:useState 之 n 的分身及解决
+2:自定义 Hook
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.1:React 之 函数 组件
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.1.1:函数组件 之 state 和 props
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.1.2:函数组件 之 生命周期
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.2:React 之 class 组件
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.2.1:class 组件 之 state 和 props</description>
+    </item>
     
     <item>
       <title>React学习笔记</title>
@@ -105,18 +123,23 @@ class Model{ constructor(data){ this.data = data; this.updateData = function(){ 
     </item>
     
     <item>
-      <title>Ajax封装以及Promise</title>
-      <link>http://angelafang.top/2020/ajax%E5%B0%81%E8%A3%85vv%E4%BB%A5%E5%8F%8Apromise/</link>
+      <title>由Ajax引起的</title>
+      <link>http://angelafang.top/2020/%E7%94%B1ajax%E5%BC%95%E8%B5%B7%E7%9A%84/</link>
       <pubDate>Wed, 29 Jan 2020 22:02:05 +0800</pubDate>
       
-      <guid>http://angelafang.top/2020/ajax%E5%B0%81%E8%A3%85vv%E4%BB%A5%E5%8F%8Apromise/</guid>
-      <description>ajax ajax：Async Javascript And Xml 一般来说请求和响应是浏览器发给服务器的。AJAX是浏览器上的功能。浏览器在window上加了一个XMLHttpRequest函数，用这个构造函数（类）可以构造出一个对象，js通过它发起请求以及接收响应。 使用ajax发送请求，分为四步： 第一步创建XMLHttpRequest对象， 第二步调用对象的open方法,open方法里要传入请求的路径以及方法 第三步监听对象的onreadystatechange事件,在事件处理函数中进行操作 第四步调用对象的send方法（发送请求） var request = new XMLHttpRequest(); request.open(method,url); request.onreadyStateChange = ()=&amp;gt;{}; request.send();
-1》闭包 什么是闭包，闭包的用途是什么，闭包的缺点是什么？
-闭包：能够读取其他函数内部变量的函数，在js中，只有定义在函数内部的子函数才能够读取局部变量，因此把闭包理解成一个定义在函数内部的函数。可以把它看作是连接函数内部和函数外部的桥梁。【使用了外部的变量】
-用途：就是读取函数内部变量，使得变量的值一直保存在内存中。 【隐藏局部变量，暴露操作函数 举例：
-const createAdd = ()=&amp;gt;{ let n = 0 return ()=&amp;gt;{ n += 1 console.log(n) } } const add = createAdd() add() // 1 add() // 2  】
-缺点：由于变量一直保存在内存中，会导致内存消耗大，使得网页性能低下。所以在退出函数之前，将不使用的局部变量全部删除。而且由于它能够在父函数外部改变内部变量的值，使得数据不安全。【容易内存泄漏】 代码举例：
-function addAge(){ let age = 21; return function(){ age++; console.log(age); } } const closure = addAge; closure(); closure()();  请理解下面的两个例子，另外注意this！！！</description>
+      <guid>http://angelafang.top/2020/%E7%94%B1ajax%E5%BC%95%E8%B5%B7%E7%9A%84/</guid>
+      <description>目录： ajax
+跨域
+promise
+axios
+localStorage 等
+其他
+ajax：Async Javascript And Xml 一般来说请求和响应是浏览器发给服务器的。AJAX 是浏览器上的功能。浏览器在 window 上加了一个 XMLHttpRequest 函数，用这个构造函数（类）可以构造出一个对象，js 通过它发起请求以及接收响应。
+使用 ajax 发送请求，分为四步：
+第一步创建 XMLHttpRequest 对象， 第二步调用对象的 open 方法,open 方法里要传入请求的路径以及方法 第三步监听对象的 onreadystatechange 事件,在事件处理函数中进行操作 第四步调用对象的 send 方法（发送请求，这里可以上传数据）
+var request = new XMLHttpRequest(); request.open(method,url); request.onreadyStateChange = ()=&amp;gt;{}; request.send();  跨域（CORS,JSONP） 浏览器有同源策略的限制。同源指的是协议，地址，端口号相同。该限制会导致如果一个浏览器去向服务器发起请求，若发起请求的地址和要请求的地址不同源，该请求会被拒绝。那么 ajax 请求就也受到这种限制，那么如何处理？一般采取两种手段，CORS 和 JSONP。
+CORS 就是在服务器端进行设置，设置响应头 Access-Control-Allow-Origin 将允许跨域访问的网址添加进去。具体文档都在 MDN 上。
+但是 IE 浏览器不支持 CORS，这时就使用 JSONP。JSONP 和 JSON 没有任何关系，JSON 就是一门标记性语言。JSONP 是利用了浏览器对于 js 文件的请求没有限制，使用 script 标签等带有 src 属性的标签去发起请求，请求一个 js 文件。该 js 文件会执行一个回调，里面有我们想要的数据。一般回调函数的名字是随机生成的，以 callback 参数的形式传递过去。JSONP 好处是兼容 IE，可以跨域，但是它只支持 get 请求，不支持 post 请求。而且 jsonp 不像 ajax 那样，可以获得请求返回的状态码，jsonp 只知道成功或者失败，也不知道响应头。</description>
     </item>
     
     <item>
