@@ -6,10 +6,33 @@
     <description>Recent content in Posts on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 13 Apr 2020 18:40:56 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2020 15:39:37 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>谈谈对this，原型链，继承，闭包等的理解</title>
+      <link>http://angelafang.top/2020/%E8%B0%88%E8%B0%88%E5%AF%B9this%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF%E9%97%AD%E5%8C%85%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Sun, 26 Apr 2020 15:39:37 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/%E8%B0%88%E8%B0%88%E5%AF%B9this%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF%E9%97%AD%E5%8C%85%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      <description>本篇文章主要总结梳理对 js 中常见的一些疑难点知识的学习理解，主要内容：
+1:this 到底指的是什么
+2:原型链到底是什么
+3:原型和类实现继承
+4:闭包到底是什么
+5:DOM 事件委托
+6:js 数组以及字符串常用的方法
+7:js 数组去重，js 排序算法
+8:其他
+1:this 到底指的是什么 首先，为什么要有 this？
+请看下面的例子，定义了一个 person 对象，有 name 和 age 属性，还定义了一个 sayHi 方法。试想，如果现在没有 this 的话，我想在 syaHi 中打印出 person 的 name 和 age，那么就需要把这个对象的 name 和 age 属性作为参数传递进去。如图一。 进行第一次改进，将对象 person 作为参数直接传进去，如图二。 进行第二次改进，能不能在调用的时候，不传这个 person，因为毕竟前面使用 person.sayHi()，就是要用这个 person 的 name 和 age。
+有两个方法：
+1》依然把第一个参数 self 当作 person，形参要始终比实参多一个，self
+2》隐藏 self，用关键字 this 来访问 self
+JS 之父选择了方法 2，Python 之父选择了方法 1，留下 self 作为第一个参数 实际上 this 是隐藏的第一个形参。在调用 person.</description>
+    </item>
     
     <item>
       <title>React之useState</title>

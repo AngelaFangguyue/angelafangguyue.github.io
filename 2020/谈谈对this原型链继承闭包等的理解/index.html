@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noodp" />
+  
+  <meta name="author" content="AngelaFang" />
+  
+  <link rel="prev" href="http://angelafang.top/2020/react%E4%B9%8Busestate/" />
+  
+  <link rel="canonical" href="http://angelafang.top/2020/%E8%B0%88%E8%B0%88%E5%AF%B9this%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF%E9%97%AD%E5%8C%85%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>
+    
+    
+    谈谈对this，原型链，继承，闭包等的理解 | Angela Fang&#39;s Blog
+    
+  </title>
+  <meta name="title" content="谈谈对this，原型链，继承，闭包等的理解 | Angela Fang&#39;s Blog"/>
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/angelafang.top\/"
+    },
+    "articleSection" : "posts",
+    "name" : "谈谈对this，原型链，继承，闭包等的理解",
+    "headline" : "谈谈对this，原型链，继承，闭包等的理解",
+    "description" : "本篇文章主要总结梳理对 js 中常见的一些疑难点知识的学习理解，主要内容：\n1:this 到底指的是什么\n2:原型链到底是什么\n3:原型和类实现继承\n4:闭包到底是什么\n5:DOM 事件委托\n6:js 数组以及字符串常用的方法\n7:js 数组去重，js 排序算法\n8:其他\n1:this 到底指的是什么 首先，为什么要有 this？\n请看下面的例子，定义了一个 person 对象，有 name 和 age 属性，还定义了一个 sayHi 方法。试想，如果现在没有 this 的话，我想在 syaHi 中打印出 person 的 name 和 age，那么就需要把这个对象的 name 和 age 属性作为参数传递进去。如图一。 进行第一次改进，将对象 person 作为参数直接传进去，如图二。 进行第二次改进，能不能在调用的时候，不传这个 person，因为毕竟前面使用 person.sayHi()，就是要用这个 person 的 name 和 age。\n有两个方法：\n1》依然把第一个参数 self 当作 person，形参要始终比实参多一个，self\n2》隐藏 self，用关键字 this 来访问 self\nJS 之父选择了方法 2，Python 之父选择了方法 1，留下 self 作为第一个参数 实际上 this 是隐藏的第一个形参。在调用 person.",
+    "inLanguage" : "zh-Hans",
+    "author" : "AngelaFang",
+    "creator" : "AngelaFang",
+    "publisher": "AngelaFang",
+    "accountablePerson" : "AngelaFang",
+    "copyrightHolder" : "AngelaFang",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-26 15:39:37 \x2b0800 CST",
+    "dateModified" : "2020-04-26 15:39:37 \x2b0800 CST",
+    "url" : "http:\/\/angelafang.top\/2020\/%E8%B0%88%E8%B0%88%E5%AF%B9this%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF%E9%97%AD%E5%8C%85%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3\/",
+    "wordCount" : "673",
+    "keywords" : [ "js", "Angela Fang\x27s Blog"]
+}
+</script>
+
+</head>
+
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">谈谈对this，原型链，继承，闭包等的理解</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://angelafang.top/" rel="author">AngelaFang</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-26 itemprop="datePublished">April 26, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://angelafang.top/categories/js/"> js </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>本篇文章主要总结梳理对 js 中常见的一些疑难点知识的学习理解，主要内容：</p>
+
+<p><a href="#a1">1:this 到底指的是什么</a></p>
+
+<p><a href="#a2">2:原型链到底是什么</a></p>
+
+<p><a href="#a3">3:原型和类实现继承</a></p>
+
+<p><a href="#a4">4:闭包到底是什么</a></p>
+
+<p><a href="#a5">5:DOM 事件委托</a></p>
+
+<p><a href="#a6">6:js 数组以及字符串常用的方法</a></p>
+
+<p><a href="#a7">7:js 数组去重，js 排序算法</a></p>
+
+<p><a href="#a8">8:其他</a></p>
+
+<hr />
+
+<h3 id="a1">1:this 到底指的是什么</h3>
+
+<p><strong style="font-size:16px">首先，为什么要有 this？</strong></p>
+
+<p>请看下面的例子，定义了一个 person 对象，有 name 和 age 属性，还定义了一个 sayHi 方法。试想，如果现在没有 this 的话，我想在 syaHi 中打印出 person 的 name 和 age，那么就需要把这个对象的 name 和 age 属性作为参数传递进去。如图一。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/this/1.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>进行第一次改进，将对象 person 作为参数直接传进去，如图二。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/this/2.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>进行第二次改进，能不能在调用的时候，不传这个 person，因为毕竟前面使用 person.sayHi()，就是要用这个 person 的 name 和 age。</p>
+
+<p>有两个方法：</p>
+
+<p>1》依然把第一个参数 self 当作 person，形参要始终比实参多一个，self</p>
+
+<p>2》隐藏 self，用关键字 this 来访问 self</p>
+
+<p>JS 之父选择了方法 2，Python 之父选择了方法 1，留下 self 作为第一个参数
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/this/3.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>实际上 this 是隐藏的第一个形参。在调用 person.sayHi() 时，这个 person 会「变成」 this。</p>
+
+<p>即 person.sayHi()其实等价于 person.sayHi.call(person)。.call 的第一个参数就是显式的 person，没有任何语法糖。因此你可以使用 obj.fn.call(null,1,2,3)来手动禁用 this。这样一来，person.sayHi.call 的参数其实可以是任何对象，也就是说虽然 person.sayHi 虽然是 person 的方法，但其实是可以调用在任何对象上的。</p>
+
+<p><strong style="font-size:16px">接下来看一下函数调用：</strong></p>
+
+<p>一般函数调用有这三种情况
+1》fn(p1,p2)
+2》obj.fn(p1,p2)
+3》fn.call(context,p1,p2)
+只有第三种调用形式，才是正常的调用形式，其余两种都可以等价的变为 call 形式：
+fn(p1,p2) fn.call(undefined,p1,p2)
+obj.fn(p1,p2) obj.fn.call(undefined,p1,p2)
+到此，我们的函数调用只有一种形式：
+fn.call(context,p1,p2)
+所以 this 就是 context！！！</p>
+
+<p><strong style="font-size:16px">this，就是上面代码中的 context。就这么简单。
+即换句话说就是 this 永远指向最后调用它的那个对象</strong></p>
+
+<p><strong style="font-size:16px">先看 func(p1, p2) 中的 this 如何确定：</strong></p>
+
+<pre><code>function func(){
+console.log(this)
+}
+func()
+</code></pre>
+
+<p>用「转换代码」把它转化一下，得到</p>
+
+<pre><code>function func(){
+console.log(this)
+}
+func.call(undefined) // 可以简写为 func.call()
+</code></pre>
+
+<p>按理说打印出来的 this 应该就是 undefined 了吧，但是浏览器里有一条规则：
+如果你传的 context 是 null 或 undefined，那么 window 对象就是默认的 context（严格模式下默认 context 是 undefined）
+因此上面的打印结果是 window。
+如果你希望这里的 this 不是 window，很简单：
+func.call(obj) // 那么里面的 this 就是 obj 对象了</p>
+
+<p><strong style="font-size:16px">再看 obj.child.method(p1, p2) 的 this 如何确定</strong></p>
+
+<pre><code>var obj = {
+foo: function(){
+console.log(this)
+}
+}
+obj.foo()
+</code></pre>
+
+<p>按照「转换代码」，我们将 obj.foo() 转换为
+obj.foo.call(obj)
+好了，this 就是 obj。搞定。</p>
+
+<p><strong style="font-size:16px">[ ] 语法中 this 怎么确定</strong></p>
+
+<pre><code>function fn (){ console.log(this) }
+var arr = [fn, fn2]
+arr[0]() // 这里面的 this 又是什么呢？
+</code></pre>
+
+<p>我们可以把 arr[0]() 想象为 arr.0( )，虽然后者的语法错了，但是形式与转换代码里的 obj.child.method(p1, p2) 对应上了，于是就可以愉快的转换了：
+arr[0]()
+假想为 arr.0()
+然后转换为 arr.0.call(arr)
+那么里面的 this 就是 arr 了 :)</p>
+
+<p><strong style="font-size:16px">箭头函数</strong></p>
+
+<p>实际上箭头函数里并没有 this，如果你在箭头函数里看到 this，你直接把它当作箭头函数外面的 this 即可。外面的 this 是什么，箭头函数里面的 this 就还是什么，因为箭头函数本身不支持 this。
+有人说「箭头函数里面的 this 指向箭头函数外面的 this」，这很傻，因为箭头函数内外 this 就是同一个东西，并不存在什么指向不指向。</p>
+
+<p><strong style="font-size:16px">总结
+this 就是你 call 一个函数时，传入的第一个参数。（「this 就是 call 的第一个参数」）
+this 永远指向最后调用它的那个对象
+如果你的函数调用形式不是 call 形式，请按照「转换代码」将其转换为 call 形式。</strong></p>
+
+<p><strong style="font-size:16px">Event Handler 中的 this</strong>
+btn.addEventListener(&lsquo;click&rsquo; ,function handler(){
+console.log(this) // 请问这里的 this 是什么
+})
+handler 中的 this 是什么呀，看了你的文章我还是不懂啊？
+那是因为你没有看懂，我们说过 this 都是由 call 或 apply 指定的，那么你只需要找到 handler 被调用时的代码就行了。
+可是我哪知道 addEventListener 的源代码呀。是呀，addEventListener 是浏览器内置的方法，我们看不见源代码。
+所以，你只能看文档了，MDN 这样说：通常来说 this 的值是触发事件的元素的引用，这种特性在多个相似的元素使用同一个通用事件监听器时非常让人满意。当使用 addEventListener() 为一个元素注册事件的时候，句柄里的 this 值是该元素的引用。其与传递给句柄的 event 参数的 currentTarget 属性的值一样。由于浏览器知道你不方便看源码里是怎么 call handler 的，所以直接在文档里告诉你了，你可以假想浏览器的源码是这样写的：
+// 当事件被触发时
+handler.call(event.currentTarget, event)
+// 那么 this 是自然就知道了</p>
+
+<p><strong style="font-size:16px">jQuery Event Handler 中的 this</strong>
+那么下面代码中的 this 是什么呢：
+\$ul.on(&lsquo;click&rsquo;, &lsquo;li&rsquo; , function(){
+console.log(this)
+})</p>
+
+<p>看 jQuery 源码是怎么 call 这个函数的，或者看 jQuery 文档。jQuery 文档是这样写的：当 jQuery 的调用处理程序时，this 关键字指向的是当前正在执行事件的元素。对于直接事件而言，this 代表绑定事件的元素。对于代理事件而言，this 则代表了与 selector 相匹配的元素。(注意，如果事件是从后代元素冒泡上来的话，那么 this 就有可能不等于 event.target。)若要使用 jQuery 的相关方法，可以根据当前元素创建一个 jQuery 对象，即使用 \$(this)。</p>
+
+<p>总结一下如何确定 this 是值
+看源码中对应的函数是怎么被 call 的（这是最靠谱的办法）;看文档;console.log(this);千万不要瞎猜，猜不到的</p>
+
+<p>如何强制指定 this 的值？自己写 call / apply 即可</p>
+
+<h3 id="a2">2:原型链到底是什么]</h3>
+
+<p>每个对象都有一个隐藏属性，这个隐藏属性指向了该类对象的共有属性，就是这类对象的原型。比如说数组对象有数组对象的原型，我们定义一个数组对象 var arr1 = new Arrar();或者是 var arr2 = [1,2,3]。arr1 和 arr2 都会有一些 push，pop 等方法，这些方法就是它们的原型上自带的。对象的原型也是对象。</p>
+
+<p>每个构造函数都有一个 protoype 属性，该属性指向的就是构造函数构造出来的这一类对象的原型。比如说 Array 这个构造函数，它的 prototype 属性指向的对象，就是 Array 这个构造函数构造出的所有函数对象的原型。还拿上面的例子来说，arr1 对象的隐藏属性对应的就是数组对象的原型，即 Array 这个构造函数的 prototype 指向的对象。</p>
+
+<p>另外要注意：构造函数本身也是对象。因此它也有隐藏属性。按照上面的说法，它的隐藏属性指向的就是它这一类对象的原型。它这一类对象就是一类函数对象。函数对象的原型就是 Function 的 prototype 所指向的对象。</p>
+
+<p>拿 Object 这个构造函数来说，它有 prototype 属性，也有隐藏属性。它的 prototype 属性指向的就是 Object 函数构造出来的这类对象所共有的属性，即所有普通对象原型。而它的隐藏属性，指向的是 Object 本身这类构造函数对象所对应的原型。下面我们可以知道，函数对象的原型就是 Function 构造函数的 prottotype 所指向的对象，即函数的原型。</p>
+
+<p>Array 构造函数，prototype 属性指向的是数组这类对象所共同拥有的属性即数组的原型，隐藏属性则指向了它本身这个构造函数对象的原型。它本身是个函数，它的隐藏属性指向的就是这一类函数对象的原型，即 Function 的 prototype 属性指向的对象。</p>
+
+<p>要记住：所有构造函数的原型都是 Function 的 prototype 属性指向的对象。Function 它自身也是个对象，是个构造函数对象，它的隐藏属性指向的也是。这就是函数对象的原型。也就是说 Function 构造函数对象的 prototype 属性和隐藏属性对应的是同一个对象，都是函数对象的原型。</p>
+
+<p>构造函数的 prototype 属性指向的是构造出来的这一类对象的原型，也是一个对象，也有隐藏属性，那么它指向的就是它这一类对象的原型。它这一类是普通的对象，普通对象的原型自然就是 Object 构造函数的 prototype 属性指向的对象，即普通对象的原型。</p>
+
+<p>Object 的 prototype 属性所指向的普通对象的原型也是一个对象。因此它也有隐藏属性，规定为 null。</p>
+
+<p>要记住原型也是对象。任何一个原型都有一个 constructor 属性，指向它的构造函数。</p>
+
+<p>每个普通对象也有一个 constructor 属性，默认调用的就是 prototype 对象的 constructor 属性。</p>
+
+<p>其实在 js 中，一切皆对象。构造函数是对象；构造函数构造出来的东西也是对象；构造函数的 prototype 属性对应的原型也是对象；所有对象的隐藏属性对应的是该类对象所共同拥有的属性，就是原型，还是对象。规定 Object 这个构造函数的 prototype 属性指向的对象，即普通对象的原型，它的隐藏属性为 null。</p>
+
+<h3 id="a3">3:原型和类实现继承</h3>
+
+<p>原型实现继承：</p>
+
+<pre><code>function Parent(name1){
+  this.name1 = name1
+}
+Parent.prototype.pMethod = ()=&gt;{
+  console.log(&quot;在Parent中:&quot;,this.name1);
+}
+function Son(name2,name1){
+  Parent.call(this,name1);
+  this.name2 = name2;
+}
+Son.prototype.__proto__ = Parent.prototype;
+Son.prototype.sMethod = ()=&gt;{
+  console.log(&quot;在Son中:&quot;,this.name2);
+};
+</code></pre>
+
+<p>基于类的继承：</p>
+
+<pre><code>class Parent{
+  constructor(name1){
+    this.name1 = name1;
+  }
+  pMethod(){
+    console.log(&quot;在Parent中:&quot;,this.name1);
+  }
+}
+class Son extends Parent{
+  constructor(name2,name1){
+    super(name1);
+    this.name2 = name2;
+  }
+  cMethod(){
+    console.log(&quot;在Son中:&quot;,this.name2);
+  }
+}
+</code></pre>
+
+<h3 id="a4">4:闭包到底是什么</h3>
+
+<p>在 js 中，函数外部是无法访问在函数内部定义的变量的。而闭包是连接函数内部和外部的桥梁。通过它，我们可以访问函数内部的变量。为什么经常说闭包是一个定义在函数内部的函数呢？因为这样的话，把定义在内部的函数 return 出来，我们通过 return 出来的这个函数可以访问到函数内部的变量。闭包起到了什么作用？第一个就是让我们可以在外面访问到函数内部的变量，起到了隐藏变量的作用，又可以通过这个闭包去实现去内部变量的修改等操作。另外就是可以使得变量一直保存在内存中。但是闭包也有缺点，造成内存泄漏，解决方法是在退出操作之前，将不使用的局部变量全部删除掉。闭包会在父函数的外部改变父函数内部变量的值，如果把父函数当作对象来用，把内部变量当作它的私有属性，把闭包当作它的公有方法，不要随便改变父函数内部变量的值。</p>
+
+<h3 id="a5">5:DOM 事件委托</h3>
+
+<p>网页其实是一棵树。浏览器向 window 上加一个 document 就可以使得 js 操作这棵树。js 使用 document 操作网页，这就是文档对象模型（Document Object Model）。</p>
+
+<p>要理解 DOM 相关事件，先理解“事件流”这个概念，事件流描述的是从页面中接收事件的顺序。</p>
+
+<p>DOM2 级事件规定的事件流包括三个阶段：事件捕获、目标阶段、事件冒泡。</p>
+
+<p>事件冒泡：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点或文档。</p>
+
+<p>事件捕获：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。它与事件冒泡是个相反的过程。</p>
+
+<p>事件委托，通俗的说就是将元素的事件委托给它的父级或者更外级的元素处理，它的实现机制就是事件冒泡。</p>
+
+<p>假设有一个列表，要求点击列表项弹出对应的字段：</p>
+
+<pre><code>&lt;ul id=&quot;myLink&quot;&gt;
+  &lt;li id=&quot;1&quot;&gt;aaa&lt;/li&gt;
+  &lt;li id=&quot;2&quot;&gt;bbb&lt;/li&gt;
+  &lt;li id=&quot;3&quot;&gt;ccc&lt;/li&gt;
+&lt;/ul&gt;
+//不使用事件委托
+var myLink = document.getElementById('myLink');
+var li = myLink.getElementsByTagName('li');
+
+for(var i = 0; i &lt; li.length; i++) {
+li[i].onclick = function(e) {
+var e = event || window.event;
+var target = e.target || e.srcElement;
+alert(e.target.id + ':' + e.target.innerText);
+ };
+}
+</code></pre>
+
+<p>存在问题：给每一个列表都绑定事件，消耗内存；当有动态添加的元素时，需要重新给元素绑定事件</p>
+
+<p>当使用事件委托时，</p>
+
+<pre><code> ul.addEventListener('click', function(e){
+     if(e.target.tagName.toLowerCase() === 'li'){
+         fn() // 执行某个函数
+     }
+ })
+</code></pre>
+
+<p>但实际上，上面的写法还是有一定错误的，倘若 li 里面包裹的有 span 元素，这时候如果点击到 span 元素，就没有办法触发 fn。所以正确的写法应该是这样的：</p>
+
+<pre><code>function update(element,eventType,selector,fn){
+  element.addEventListener(eventType,(e)=&gt;{
+    let el = e.target;
+
+    while(!el===selector){
+      if(el===element){
+        el=null;
+        break;
+      }
+      el = el.parentNode;
+    }
+    el &amp;&amp; fn.call(el)
+  })
+  return element;
+}
+</code></pre>
+
+<p>思路就是，当点击 span 元素的时候，一层一层的向上找 span 元素的父级元素，看是否有 ul 里的 li。</p>
+
+<p>事件委托的特点 1.可以大量节省内存占用，减少事件注册；2.实现当新增子对象时无需再次对其绑定事件,实现动态内容很方便</p>
+
+<h3 id="a6">6:js 数组以及字符串常用的方法</h3>
+
+<h3 id="a7">7:js 数组去重，js 排序算法</h3>
+
+<h3 id="a8">8:其他</h3>
+
+<p>如何实现一个三栏布局，左右宽度固定，中间宽度自适应。</p>
+
+<p>1：绝对定位，中间主体用左右 margin 撑开</p>
+
+<p>2：自身浮动法，中间的 div 要放在最后，注意清除浮动</p>
+
+<p>3：margin 负值法：左右两栏均左浮动，左右两栏采用负的 margin 值。中间栏被宽度为 100%的浮动元素包起来。左右两栏 div 的顺序不分先后，但是主体部分 div 要放前面。</p>
+
+<p>4：flex 布局，左右 flex-basis，中间 flex-grow。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>AngelaFang </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://angelafang.top/2020/%E8%B0%88%E8%B0%88%E5%AF%B9this%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF%E9%97%AD%E5%8C%85%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/>http://angelafang.top/2020/%E8%B0%88%E8%B0%88%E5%AF%B9this%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF%E9%97%AD%E5%8C%85%E7%AD%89%E7%9A%84%E7%90%86%E8%A7%A3/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://angelafang.top/tags/js/">
+                    #js</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://angelafang.top/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://angelafang.top/2020/react%E4%B9%8Busestate/" class="prev" rel="prev" title="React之useState"><i class="iconfont icon-left"></i>&nbsp;React之useState</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://angelafang.top/">AngelaFang</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
