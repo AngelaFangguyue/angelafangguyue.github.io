@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue svg webpack on Angela Fang&#39;s Blog</title>
+    <link>http://angelafang.top/categories/vue-svg-webpack/</link>
+    <description>Recent content in Vue svg webpack on Angela Fang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 29 Apr 2020 15:29:46 +0800</lastBuildDate>
+    
+	<atom:link href="http://angelafang.top/categories/vue-svg-webpack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在Vue中svg的使用</title>
+      <link>http://angelafang.top/2020/%E5%9C%A8vue%E4%B8%ADsvg%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 29 Apr 2020 15:29:46 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/%E5%9C%A8vue%E4%B8%ADsvg%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>如何在 Vue 项目中引入 svg：
+1：在 src/assets/下建立一個 icons 文件夾，將下載的 svg 圖片放在這裏
+2：引入 svg-sprite-loader，并在 vue.config.js 中进行配置；
+這樣就可以通過
+import &#39;src/assets/icons/XXX.svg&#39;, &amp;lt;svg&amp;gt;&amp;lt;use xlink:href=&amp;quot;#XXX&amp;quot;&amp;gt;&amp;lt;/use&amp;gt;&amp;lt;/svg&amp;gt;  來引入使用這個圖片
+3：上面有兩點需要改進的地方 第一是每次需要引入一個 svg 圖片，就需要 import &amp;lsquo;src/assets/icons/****.svg&amp;rsquo;, 第二個是每次使用的時候，都要寫
+&amp;lt;svg&amp;gt;&amp;lt;use xlink:href=&amp;quot;#\*\***&amp;quot;&amp;gt;&amp;lt;/use&amp;gt;&amp;lt;/svg&amp;gt;  这句代码。
+針對第一個問題：使用 webpack 的 require.context,通过正则匹配引入相应的文件模块。
+針對第二個問題：抽離出一個組件，專門用來顯示圖標。所以可以建立一個 Icon 的組件，在裏面使用 require.context 使得相应目录下的圖標全部自動加載，同時使用圖標的時候，引入 Icon 組件，使用該組件即可。
+在 vue-config.js 中的配置要注意：我們需要處理的 svg 圖片僅在 src/assets/icons，這個路徑下面的圖片也不需要被其他 loader 處理了。其他路徑的圖片也不需要用 svg-sprite-loader 去處理。同時如果需要對 svg 圖片進行優化，也可以使用 svgo 去優化。
+關於 svg 圖片的使用具體可以參考Vue 項目中優雅使用 svg以及手摸手，帶你優雅的使用 icon這兩篇文章</description>
+    </item>
+    
+  </channel>
+</rss>
