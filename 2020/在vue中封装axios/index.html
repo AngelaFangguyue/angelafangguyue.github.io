@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noodp" />
+  
+  <meta name="author" content="AngelaFang" />
+  
+  <link rel="prev" href="http://angelafang.top/2020/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
+  
+  <link rel="canonical" href="http://angelafang.top/2020/%E5%9C%A8vue%E4%B8%AD%E5%B0%81%E8%A3%85axios/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>
+    
+    
+    在vue中封装axios | Angela Fang&#39;s Blog
+    
+  </title>
+  <meta name="title" content="在vue中封装axios | Angela Fang&#39;s Blog"/>
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/angelafang.top\/"
+    },
+    "articleSection" : "posts",
+    "name" : "在vue中封装axios",
+    "headline" : "在vue中封装axios",
+    "description" : "axios 是 Vue 官方推荐的一个 HTTP 库，用 axios 官方简介来介绍它，就是：Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。\n虽然，axios 是个优秀的 HTTP 库，但是，直接在项目中使用并不是那么方便，所以，我们需要对其进行一定程度上的配置封装，减少重复代码，方便调用。\n在 vue 项目中，和后台交互获取数据这块，我们通常使用的是 axios 库，它是基于 promise 的 http 库，可运行在浏览器端和 node.js 中。他有很多优秀的特性，例如拦截请求和响应、取消请求、转换 json、客户端防御 XSRF 等\n其实，网上关于 axios 封装的代码不少，但是大部分都是在入口文件（main.js）中进行 axios 全局对象属性定义的形式进行配置，类似于如下代码：\naxios.defaults.timeout = 10000  该方案有两个不足，首先，axios 封装代码耦合进入入口文件，不方便后期维护；其次，使用 axios 全局对象属性定义的方式进行配置，代码过于零散。\n针对问题一，使用了 Vue 源码结构中的一大核心思想——将功能拆分为文件，方便后期的维护。单独创建一个 http.js 或者 http.ts 文件，在文件中引入 axios 并对其进行封装配置，最后将其导出并挂载到 Vue 的原型上即可。此时，每次修改 axios 配置，只需要修改对应的文件即可，不会影响到不相关的功能。\n针对问题二，采用 axios 官方推荐的，通过配置项创建 axios 实例的方式进行配置封装。 代码如下：\n\/\/ http.js import axios from \x27axios\x27 \/\/ 创建 axios 实例 const service = axios.",
+    "inLanguage" : "zh-Hans",
+    "author" : "AngelaFang",
+    "creator" : "AngelaFang",
+    "publisher": "AngelaFang",
+    "accountablePerson" : "AngelaFang",
+    "copyrightHolder" : "AngelaFang",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-01 15:59:30 \x2b0800 CST",
+    "dateModified" : "2020-05-01 15:59:30 \x2b0800 CST",
+    "url" : "http:\/\/angelafang.top\/2020\/%E5%9C%A8vue%E4%B8%AD%E5%B0%81%E8%A3%85axios\/",
+    "wordCount" : "348",
+    "keywords" : [ "vue axios", "Angela Fang\x27s Blog"]
+}
+</script>
+
+</head>
+
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">在vue中封装axios</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://angelafang.top/" rel="author">AngelaFang</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-05-01 itemprop="datePublished">May 1, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://angelafang.top/categories/vue-axios/"> vue axios </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>axios 是 Vue 官方推荐的一个 HTTP 库，用 axios 官方简介来介绍它，就是：Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</p>
+
+<p>虽然，axios 是个优秀的 HTTP 库，但是，直接在项目中使用并不是那么方便，所以，我们需要对其进行一定程度上的配置封装，减少重复代码，方便调用。</p>
+
+<p>在 vue 项目中，和后台交互获取数据这块，我们通常使用的是 axios 库，它是基于 promise 的 http 库，可运行在浏览器端和 node.js 中。他有很多优秀的特性，例如拦截请求和响应、取消请求、转换 json、客户端防御 XSRF 等</p>
+
+<p>其实，网上关于 axios 封装的代码不少，但是大部分都是在入口文件（main.js）中进行 axios 全局对象属性定义的形式进行配置，类似于如下代码：</p>
+
+<pre><code>axios.defaults.timeout = 10000
+</code></pre>
+
+<p>该方案有两个不足，首先，axios 封装代码耦合进入入口文件，不方便后期维护；其次，使用 axios 全局对象属性定义的方式进行配置，代码过于零散。</p>
+
+<p>针对问题一，使用了 Vue 源码结构中的一大核心思想——将功能拆分为文件，方便后期的维护。单独创建一个 http.js 或者 http.ts 文件，在文件中引入 axios 并对其进行封装配置，最后将其导出并挂载到 Vue 的原型上即可。此时，每次修改 axios 配置，只需要修改对应的文件即可，不会影响到不相关的功能。</p>
+
+<p>针对问题二，采用 axios 官方推荐的，通过配置项创建 axios 实例的方式进行配置封装。
+代码如下：</p>
+
+<pre><code>// http.js
+import axios from 'axios'
+// 创建 axios 实例
+const service = axios.create({
+  // 配置项
+})
+</code></pre>
+
+<p>接着就是在配置项中配置，根据环境设置 baseURL，统一设置请求头，设置跨域超时响应码的处理，请求响应处理，拦截器等。具体的封装代码如下：</p>
+
+<pre><code>// http.ts
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+
+const showStatus = (status: number) =&gt; {
+  let message = ''
+  switch (status) {
+    case 400:
+      message = '请求错误(400)'
+      break
+    case 401:
+      message = '未授权，请重新登录(401)'
+      break
+    case 403:
+      message = '拒绝访问(403)'
+      break
+    case 404:
+      message = '请求出错(404)'
+      break
+    case 408:
+      message = '请求超时(408)'
+      break
+    case 500:
+      message = '服务器错误(500)'
+      break
+    case 501:
+      message = '服务未实现(501)'
+      break
+    case 502:
+      message = '网络错误(502)'
+      break
+    case 503:
+      message = '服务不可用(503)'
+      break
+    case 504:
+      message = '网络超时(504)'
+      break
+    case 505:
+      message = 'HTTP版本不受支持(505)'
+      break
+    default:
+      message = `连接出错(${status})!`
+  }
+  return `${message}，请检查网络或联系管理员！`
+}
+
+const service = axios.create({
+  // 联调
+  baseURL: process.env.NODE_ENV === 'production' ? `/` : '/apis',
+  headers: {
+    get: {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+    },
+    post: {
+      'Content-Type': 'application/json;charset=utf-8'
+    }
+  },
+  // 是否跨站点访问控制请求
+  withCredentials: true,
+  timeout: 30000,
+  transformRequest: [(data) =&gt; {
+    data = JSON.stringify(data)
+    return data
+  }],
+  validateStatus () {
+    // 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常
+    return true
+  },
+  transformResponse: [(data) =&gt; {
+    if (typeof data === 'string' &amp;&amp; data.startsWith('{')) {
+      data = JSON.parse(data)
+    }
+    return data
+  }]
+})
+
+// 请求拦截器
+service.interceptors.request.use((config: AxiosRequestConfig) =&gt; {
+    return config
+}, (error) =&gt; {
+    // 错误抛到业务代码
+    error.data = {}
+    error.data.msg = '服务器异常，请联系管理员！'
+    return Promise.resolve(error)
+})
+
+// 响应拦截器
+service.interceptors.response.use((response: AxiosResponse) =&gt; {
+    const status = response.status
+    let msg = ''
+    if (status &lt; 200 || status &gt;= 300) {
+        // 处理http错误，抛到业务代码
+        msg = showStatus(status)
+        if (typeof response.data === 'string') {
+            response.data = {msg}
+        } else {
+            response.data.msg = msg
+        }
+    }
+    return response
+}, (error) =&gt; {
+    // 错误抛到业务代码
+    error.data = {}
+    error.data.msg = '请求超时或服务器异常，请检查网络或联系管理员！'
+    return Promise.resolve(error)
+})
+
+export default service
+</code></pre>
+
+<p>axios 在默认请求头为 application/json 时，会自动进行序列化处理，不需要开发者再去配置这里了。</p>
+
+<p><a href="https://juejin.im/post/5da90c3e6fb9a04e031c0413" rel="nofollow noreferrer" target="_blank">参考链接 1：</a>
+<a href="https://juejin.im/post/5b55c118f265da0f6f1aa354" rel="nofollow noreferrer" target="_blank">参考链接 2：</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>AngelaFang </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://angelafang.top/2020/%E5%9C%A8vue%E4%B8%AD%E5%B0%81%E8%A3%85axios/>http://angelafang.top/2020/%E5%9C%A8vue%E4%B8%AD%E5%B0%81%E8%A3%85axios/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://angelafang.top/tags/vue-axios/">
+                    #vue axios</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://angelafang.top/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://angelafang.top/2020/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="prev" rel="prev" title="移动端适配解决方案"><i class="iconfont icon-left"></i>&nbsp;移动端适配解决方案</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://angelafang.top/">AngelaFang</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
