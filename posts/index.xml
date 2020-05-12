@@ -6,10 +6,39 @@
     <description>Recent content in Posts on Angela Fang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 01 May 2020 15:59:30 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 10:40:46 +0800</lastBuildDate>
     
 	<atom:link href="http://angelafang.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>布局</title>
+      <link>http://angelafang.top/2020/%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Tue, 12 May 2020 10:40:46 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/%E5%B8%83%E5%B1%80/</guid>
+      <description>布局的时候，经常会用到左右两边宽度固定，中间宽度自适应的这种情况。经典的就是圣杯布局和双飞翼布局。
+圣杯布局：注意 middle 写在前面就行了，dom 结构如下：
+&amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;hd&amp;quot;&amp;gt;header&amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;bd&amp;quot;&amp;gt; &amp;lt;div id=&amp;quot;middle&amp;quot;&amp;gt;middle&amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;left&amp;quot;&amp;gt;left&amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;right&amp;quot;&amp;gt;right&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;footer&amp;quot;&amp;gt;footer&amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt;  css:
+&amp;lt;style&amp;gt; #hd{ height:50px; background: #666; text-align: center; } #bd{ /*左右栏通过添加负的margin放到正确的位置了，此段代码是为了摆正中间栏的位置*/ padding:0 200px 0 180px; height:100px; } #middle{ float:left; width:100%;/*左栏上去到第一行*/ height:100px; background:blue; } #left{ float:left; width:180px; height:100px; margin-left:-100%; background:#0c9; /*中间栏的位置摆正之后，左栏的位置也相应右移，通过相对定位的left恢复到正确位置*/ position:relative; left:-180px; } #right{ float:left; width:200px; height:100px; margin-left:-200px; background:#0c9; /*中间栏的位置摆正之后，右栏的位置也相应左移，通过相对定位的right恢复到正确位置*/ position:relative; right:-200px; } #footer{ height:50px; background: #666; text-align: center; } &amp;lt;/style&amp;gt;  双飞翼布局： DOM 结构如下：</description>
+    </item>
+    
+    <item>
+      <title>函数防抖与节流和排序以及数组去重</title>
+      <link>http://angelafang.top/2020/%E5%92%8C%E6%8E%92%E5%BA%8F%E4%BB%A5%E5%8F%8A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</link>
+      <pubDate>Sun, 03 May 2020 10:37:12 +0800</pubDate>
+      
+      <guid>http://angelafang.top/2020/%E5%92%8C%E6%8E%92%E5%BA%8F%E4%BB%A5%E5%8F%8A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</guid>
+      <description>在前端开发的过程中，有很多场景会频繁触发事件，比如说搜索框实时发送请求，也有很多场景需要我们绑定一些持续触发的事件，如 resize，scroll，mousemove 等，但有些时候我们并不希望在事件持续触发的过程中那么频繁的去执行函数。这种情况下，防抖和节流是比较好的解决方案。
+函数防抖：在短时间内多次触发同一个事件，只执行最后一次，或者只在开始时执行，中间不执行。
+//绿色基础版： function debounce(doSomething,wait){ var timeout;//需要一个外部变量，为增强封装，所以使用闭包 return function(){ var _this = this, _arguments = arguments;//arguments中存着e clearTimeout(timeout); timeout = setTimeout(function(){ doSomething.apply(_this,_arguments); },wait); } }  函数节流：节流是连续触发事件的过程中以一定时间间隔执行函数。节流会稀释你的执行频率，比如每间隔 1 秒钟，只会执行一次函数，无论这 1 秒钟内触发了多少次事件。
+//绿色基础版之定时器版 function throttle(doSomething,wait){ var timeout; return function(){ var _this = this; _arguments = arguments; if(!timeout){ timeout = setTimeout(function(){ timeout = null; doSomething.apply(_this,_arguments); },wait); }; } }  常见的排序算法：
+数组去重：
+1》使用计数排序的思路，稍加变形
+2》
+async 和 awiat：
+async 可以看作是多个异步操作，封装成的 promise 对象，await 是 then 的语法糖。</description>
+    </item>
     
     <item>
       <title>在vue中封装axios</title>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noodp" />
+  
+  <meta name="author" content="AngelaFang" />
+  
+  <link rel="prev" href="http://angelafang.top/2020/%E5%9C%A8vue%E4%B8%AD%E5%B0%81%E8%A3%85axios/" />
+  
+  <link rel="next" href="http://angelafang.top/2020/%E5%B8%83%E5%B1%80/" />
+  
+  <link rel="canonical" href="http://angelafang.top/2020/%E5%92%8C%E6%8E%92%E5%BA%8F%E4%BB%A5%E5%8F%8A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>
+    
+    
+    函数防抖与节流和排序以及数组去重 | Angela Fang&#39;s Blog
+    
+  </title>
+  <meta name="title" content="函数防抖与节流和排序以及数组去重 | Angela Fang&#39;s Blog"/>
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/angelafang.top\/"
+    },
+    "articleSection" : "posts",
+    "name" : "函数防抖与节流和排序以及数组去重",
+    "headline" : "函数防抖与节流和排序以及数组去重",
+    "description" : "在前端开发的过程中，有很多场景会频繁触发事件，比如说搜索框实时发送请求，也有很多场景需要我们绑定一些持续触发的事件，如 resize，scroll，mousemove 等，但有些时候我们并不希望在事件持续触发的过程中那么频繁的去执行函数。这种情况下，防抖和节流是比较好的解决方案。\n函数防抖：在短时间内多次触发同一个事件，只执行最后一次，或者只在开始时执行，中间不执行。\n\/\/绿色基础版： function debounce(doSomething,wait){ var timeout;\/\/需要一个外部变量，为增强封装，所以使用闭包 return function(){ var _this = this, _arguments = arguments;\/\/arguments中存着e clearTimeout(timeout); timeout = setTimeout(function(){ doSomething.apply(_this,_arguments); },wait); } }  函数节流：节流是连续触发事件的过程中以一定时间间隔执行函数。节流会稀释你的执行频率，比如每间隔 1 秒钟，只会执行一次函数，无论这 1 秒钟内触发了多少次事件。\n\/\/绿色基础版之定时器版 function throttle(doSomething,wait){ var timeout; return function(){ var _this = this; _arguments = arguments; if(!timeout){ timeout = setTimeout(function(){ timeout = null; doSomething.apply(_this,_arguments); },wait); }; } }  常见的排序算法：\n数组去重：\n1》使用计数排序的思路，稍加变形\n2》\nasync 和 awiat：\nasync 可以看作是多个异步操作，封装成的 promise 对象，await 是 then 的语法糖。",
+    "inLanguage" : "zh-Hans",
+    "author" : "AngelaFang",
+    "creator" : "AngelaFang",
+    "publisher": "AngelaFang",
+    "accountablePerson" : "AngelaFang",
+    "copyrightHolder" : "AngelaFang",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-03 10:37:12 \x2b0800 CST",
+    "dateModified" : "2020-05-03 10:37:12 \x2b0800 CST",
+    "url" : "http:\/\/angelafang.top\/2020\/%E5%92%8C%E6%8E%92%E5%BA%8F%E4%BB%A5%E5%8F%8A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D\/",
+    "wordCount" : "71",
+    "keywords" : [ "", "Angela Fang\x27s Blog"]
+}
+</script>
+
+</head>
+
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://angelafang.top/">Angela Fang&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">函数防抖与节流和排序以及数组去重</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://angelafang.top/" rel="author">AngelaFang</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-05-03 itemprop="datePublished">May 3, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>在前端开发的过程中，有很多场景会频繁触发事件，比如说搜索框实时发送请求，也有很多场景需要我们绑定一些持续触发的事件，如 resize，scroll，mousemove 等，但有些时候我们并不希望在事件持续触发的过程中那么频繁的去执行函数。这种情况下，防抖和节流是比较好的解决方案。</p>
+
+<p>函数防抖：在短时间内多次触发同一个事件，只执行最后一次，或者只在开始时执行，中间不执行。</p>
+
+<pre><code>//绿色基础版：
+function debounce(doSomething,wait){
+    var timeout;//需要一个外部变量，为增强封装，所以使用闭包
+    return function(){
+        var _this = this,
+            _arguments = arguments;//arguments中存着e
+        clearTimeout(timeout);
+        timeout = setTimeout(function(){
+            doSomething.apply(_this,_arguments);
+        },wait);
+    }
+}
+</code></pre>
+
+<p>函数节流：节流是连续触发事件的过程中以一定时间间隔执行函数。节流会稀释你的执行频率，比如每间隔 1 秒钟，只会执行一次函数，无论这 1 秒钟内触发了多少次事件。</p>
+
+<pre><code>//绿色基础版之定时器版
+function throttle(doSomething,wait){
+    var timeout;
+    return function(){
+        var _this = this;
+            _arguments = arguments;
+        if(!timeout){
+            timeout = setTimeout(function(){
+                timeout = null;
+                doSomething.apply(_this,_arguments);
+            },wait);
+        };
+    }
+}
+</code></pre>
+
+<p>常见的排序算法：</p>
+
+<p>数组去重：</p>
+
+<p>1》使用计数排序的思路，稍加变形</p>
+
+<p>2》</p>
+
+<p>async 和 awiat：</p>
+
+<p>async 可以看作是多个异步操作，封装成的 promise 对象，await 是 then 的语法糖。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>AngelaFang </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://angelafang.top/2020/%E5%92%8C%E6%8E%92%E5%BA%8F%E4%BB%A5%E5%8F%8A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/>http://angelafang.top/2020/%E5%92%8C%E6%8E%92%E5%BA%8F%E4%BB%A5%E5%8F%8A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://angelafang.top/tags//">
+                    #</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://angelafang.top/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://angelafang.top/2020/%E5%9C%A8vue%E4%B8%AD%E5%B0%81%E8%A3%85axios/" class="prev" rel="prev" title="在vue中封装axios"><i class="iconfont icon-left"></i>&nbsp;在vue中封装axios</a>
+         
+        
+        <a href="http://angelafang.top/2020/%E5%B8%83%E5%B1%80/" class="next" rel="next" title="布局">布局&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2011 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://angelafang.top/">AngelaFang</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
